@@ -1,0 +1,32 @@
+header {
+    height: 77px;
+    width: 100%;
+    background-color: white;
+    border-bottom: 5px #707070;
+}
+
+.MainBody {
+    background-color: white;
+    height: calc(100vh - 179px);
+    margin: 0 auto;
+}
+
+footer {
+    height: 102px;
+    width: 100%;
+    background-color: white;
+}
+
+.NavBar {
+    height: 77px;
+    background-color: white;
+    margin: 0 auto;
+    border-bottom: 1px #707070;
+}
+
+.FooterBar {
+    height: 77px;
+    background-color: #F5F5F5;
+    border-radius: 25px;
+    margin: 0 auto;
+}
