@@ -14,17 +14,32 @@
     letter-spacing: 0px;
 }
 
+@font-face {
+    font-family: 'Galmuri11';
+    src: url('../../res/fonts/Galmuri11.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 header {
+    position: fixed;
+    top: 0;
     height: 77px;
     width: 100%;
     background-color: white;
     border-bottom: 1px solid #707070;
+    z-index: 1000;
 }
 
 .MainBody {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
     background-color: white;
-    height: calc(100vh - 179px);
+    height: calc(100vh - 102px);
     margin: 0 auto;
+    margin-top: 77px;
 }
 
 footer {
@@ -42,11 +57,12 @@ footer {
     margin: 0 auto;
     border-bottom: 1px #707070;
     padding: 0px 10px;
+    font-family: 'Galmuri11';
 }
 
-.NavBar>div> a {
+.NavBar>div>a {
     font-size: 24px;
-    font-family: 'Inter-reg';
+    font-family: inherit;
     line-height: 77px;
 }
 
@@ -54,7 +70,7 @@ footer {
     background-color: white;
     border: none;
     padding: 0px;
-    font-family: 'inter-thin';
+    font-family: inherit;
     font-size: 18px;
     float: right;
 }
