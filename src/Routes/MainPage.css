@@ -24,6 +24,7 @@
 header {
     position: fixed;
     top: 0;
+    bottom: 0;
     height: 77px;
     width: 100%;
     background-color: white;
@@ -43,6 +44,7 @@ header {
 }
 
 footer {
+    margin-top: 0px;
     height: 102px;
     width: 100%;
     background-color: white;
@@ -75,11 +77,20 @@ footer {
     float: right;
 }
 
+.NavBar>button:hover {
+    cursor: pointer;
+} 
+
 .FooterBar {
     height: 77px;
     background-color: #F5F5F5;
     border-radius: 25px;
     margin: 0 auto;
+    font-family: 'Galmuri11';
+    font-size: 16px;
+    line-height: 77px;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .Card {

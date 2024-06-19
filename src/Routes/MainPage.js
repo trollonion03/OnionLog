@@ -42,13 +42,11 @@ const MainPage = () => {
                 </div>
             </header>
             <div className='MainBody' style={bodyStyle}>
-                <div className='Card' style={cardStyle}>
-
-                </div>
+                <div className='Card' style={cardStyle}></div>
             </div>
             <footer>
                 <div className='FooterBar' style={divStyle}>
-
+                    <h>© 2024, Hyoungeon Kim</h>
                 </div>
             </footer>
         </div>
