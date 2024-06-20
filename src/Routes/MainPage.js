@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import './MainPage.css';
@@ -6,6 +6,11 @@ import './MainPage.css';
 const MainPage = () => {
     const isLargeScreen = useMediaQuery({minDeviceWidth: 1180});
     const isLargeHeight = useMediaQuery({minDeviceHeight: 899});
+
+    //mouse scroll effect
+    const cardRef = useRef(null);
+    const [scrollDist, setScrollDist] = useState(0);
+    const scrollThreshold = 100;
 
     const navStyle = {
         maxWidth: isLargeScreen ? 'calc(1180px - 20px)' : '100%',
@@ -16,7 +21,7 @@ const MainPage = () => {
     };
 
     const bodyStyle = {
-        maxWidth: isLargeScreen ? '1180px' : '100px',
+        maxWidth: isLargeScreen ? '1180px' : '100%',
         height: isLargeHeight? '770px' : 'calc(100vh - 102px)' 
     }
 
@@ -30,6 +35,29 @@ const MainPage = () => {
         console.log('login');
     }
 
+    useEffect(() => {
+        const handleWheel = (e) => {
+            if(cardRef.current && cardRef.current.contains(e.target)) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                setScrollDist((prevDist) => {
+                    const newDist = prevDist + e.deltaY;
+                    if (newDist > scrollThreshold) {
+                        console.log('Card 위에서 일정 수치 이상 스크롤');
+                    }
+                    return newDist;
+                });
+            }
+        };
+        
+        window.addEventListener('wheel', handleWheel, {passive: false});
+
+        return () => {
+            window.removeEventListener('wheel', handleWheel);
+        };
+    }, []);
+
     return (
         <div className='MainPage'>
             <header>
@@ -42,11 +70,11 @@ const MainPage = () => {
                 </div>
             </header>
             <div className='MainBody' style={bodyStyle}>
-                <div className='Card' style={cardStyle}></div>
+                <div className='Card' style={cardStyle} ref={cardRef}></div>
             </div>
             <footer>
                 <div className='FooterBar' style={divStyle}>
-                    <h>© 2024, Hyoungeon Kim</h>
+                    © 2024, Hyoungeon Kim
                 </div>
             </footer>
         </div>
