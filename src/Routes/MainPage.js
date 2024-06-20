@@ -43,9 +43,13 @@ const MainPage = () => {
 
                 setScrollDist((prevDist) => {
                     const newDist = prevDist + e.deltaY;
-                    if (newDist > scrollThreshold) {
-                        console.log('Card 위에서 일정 수치 이상 스크롤');
+                    if (newDist > prevDist) {
+                        console.log('Card 위에서 아래로 스크롤');
                     }
+                    else if (newDist < prevDist) {
+                        console.log('Card 위에서 위로 스크롤');
+                    }
+                    console.log(newDist);
                     return newDist;
                 });
             }
