@@ -10,7 +10,6 @@ const MainPage = () => {
     //mouse scroll effect
     const cardRef = useRef(null);
     const [scrollDist, setScrollDist] = useState(0);
-    const scrollThreshold = 100;
 
     const navStyle = {
         maxWidth: isLargeScreen ? 'calc(1180px - 20px)' : '100%',
@@ -42,14 +41,17 @@ const MainPage = () => {
                 e.stopPropagation();
 
                 setScrollDist((prevDist) => {
-                    const newDist = prevDist + e.deltaY;
-                    if (newDist > prevDist) {
-                        console.log('Card 위에서 아래로 스크롤');
+                    var newDist = prevDist + e.deltaY;
+                    
+                    if (newDist > 500) {
+                        newDist = 0;
                     }
-                    else if (newDist < prevDist) {
-                        console.log('Card 위에서 위로 스크롤');
+                    else if (newDist < 0) {
+                        newDist = 500;
                     }
+                    
                     console.log(newDist);
+
                     return newDist;
                 });
             }
@@ -74,7 +76,8 @@ const MainPage = () => {
                 </div>
             </header>
             <div className='MainBody' style={bodyStyle}>
-                <div className='Card' style={cardStyle} ref={cardRef}></div>
+                <div className='Card' style={cardStyle} ref={cardRef}>
+                </div>
             </div>
             <footer>
                 <div className='FooterBar' style={divStyle}>
