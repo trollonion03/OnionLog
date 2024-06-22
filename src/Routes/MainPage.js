@@ -9,6 +9,7 @@ const MainPage = () => {
 
     //mouse scroll effect
     const cardRef = useRef(null);
+    const timerRef  = useRef(null);
     const [scrollDist, setScrollDist] = useState(0);
 
     const navStyle = {
@@ -34,33 +35,53 @@ const MainPage = () => {
         console.log('login');
     }
 
+    const handleWheel = (e) => {
+        console.log("called");
+        if(cardRef.current && cardRef.current.contains(e.target)) {
+            setScrollDist((prevDist) => {
+                var newDist = prevDist + e.deltaY;
+                
+                if (newDist > 500) {
+                    newDist = 0;
+                    console.log("zero");
+                }
+                else if (newDist < 0) {
+                    newDist = 500;
+                    console.log("one");
+                }
+                
+                setScrollDist(newDist);
+                console.log(newDist);
+
+                return newDist;
+            });
+        }
+    };
+    
+    const debounceWheelEvent = (e) => {
+        if(cardRef.current && cardRef.current.contains(e.target)) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        console.log(Boolean(timerRef.current));
+        if (!timerRef.current) {
+            timerRef.current = setTimeout (() => {
+                timerRef.current = null;
+                handleWheel(e);
+            }, 2500);
+        }
+    };
+
     useEffect(() => {
-        const handleWheel = (e) => {
-            if(cardRef.current && cardRef.current.contains(e.target)) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                setScrollDist((prevDist) => {
-                    var newDist = prevDist + e.deltaY;
-                    
-                    if (newDist > 500) {
-                        newDist = 0;
-                    }
-                    else if (newDist < 0) {
-                        newDist = 500;
-                    }
-                    
-                    console.log(newDist);
-
-                    return newDist;
-                });
-            }
-        };
-        
-        window.addEventListener('wheel', handleWheel, {passive: false});
+        window.addEventListener('wheel', debounceWheelEvent, {passive: false});
 
         return () => {
-            window.removeEventListener('wheel', handleWheel);
+            window.removeEventListener('wheel', debounceWheelEvent);
+            if (timerRef.current) {
+                clearTimeout(timerRef.current);
+                timerRef.current = null;
+            }
         };
     }, []);
 
