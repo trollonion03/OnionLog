@@ -7,14 +7,17 @@ const MainPage = () => {
     const isLargeScreen = useMediaQuery({minDeviceWidth: 1180});
     const isLargeHeight = useMediaQuery({minDeviceHeight: 899});
 
-    //mouse scroll effect(refs)
+    //mouse scroll effect
     const cardRef = useRef(null);
     const timerRef = useRef(null);
     const wheelRef = useRef(0);
-    
-    //mouse scroll effect(constants)
     const scrollThreshold = 500;
+    
+    //Card switch effect
+    const [switchState, setSwitchState] = useState(0);
+    const maxPage = 8;
 
+    //--- [Start] Components Styles ---
     const navStyle = {
         maxWidth: isLargeScreen ? 'calc(1180px - 20px)' : '100%',
     };
@@ -33,34 +36,48 @@ const MainPage = () => {
         height: '720px'
     }
 
+    //--- [End] Components Styles ---
 
     const onClickLogin = () => {
         console.log('login');
     }
 
+    //--- [Start] Switch card handler ---
+
+    useEffect(() => {
+        console.log(`page: ${switchState}`);
+    }, [switchState]);
+
+    //--- [End] Switch card handler ---
+
+    //--- [Start] Wheel event handler ---
     const handleWheel = useCallback((e) => {
         if(cardRef.current && cardRef.current.contains(e.target)) {
-            console.log("called");
             wheelRef.current += e.deltaY;
                 
             if (wheelRef.current > scrollThreshold) {
                 wheelRef.current = 0;
-                console.log("zero");
+                if (switchState+1 <= maxPage)
+                    setSwitchState(switchState+1);
+                // console.log('next');
             }
             else if (wheelRef.current < 0) {
                 wheelRef.current = scrollThreshold;
-                console.log("one");
+                if (switchState-1 >= 0)
+                    setSwitchState(switchState-1);
+                // console.log('prev');
             }
                 
-            console.log(wheelRef.current);
+            // console.log(`wheel: ${wheelRef.current}`);
         }
-    }, []);
+    }, [switchState]);
     
+    // wheel event debouncer
     const debounceWheelEvent = useCallback((e) => {
         if(cardRef.current && cardRef.current.contains(e.target)) {
             e.preventDefault();
             e.stopPropagation();
-            console.log(Boolean(timerRef.current));
+            // console.log(Boolean(timerRef.current));
         }
 
         
@@ -68,7 +85,7 @@ const MainPage = () => {
             timerRef.current = setTimeout (() => {
                 timerRef.current = null;
                 handleWheel(e);
-            }, 100);
+            }, 10);
         }
     }, [handleWheel]);
 
@@ -83,6 +100,8 @@ const MainPage = () => {
             }
         };
     }, [debounceWheelEvent]);
+    
+    //--- [End] wheel evnet handler ---
 
     return (
         <div className='MainPage'>
@@ -97,7 +116,7 @@ const MainPage = () => {
             </header>
             <div className='MainBody' style={bodyStyle}>
                 <div className='Card' style={cardStyle} ref={cardRef}>
-                    
+
                 </div>
             </div>
             <footer>
