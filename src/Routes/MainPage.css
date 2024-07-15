@@ -97,4 +97,23 @@ footer {
     background-color: #1A2029;
     margin: 0 auto;
     border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Cards {
+}
+
+.PageBtn {
+    font-family: 'galmuri11';
+    background-color: inherit;
+    color: white;
+    border: 0px none;
+    font-size: 48px;
+    letter-spacing: 0px;
+}
+
+.titles {
+    font-size: 64px;
 }

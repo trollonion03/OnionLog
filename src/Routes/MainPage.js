@@ -14,7 +14,7 @@ const MainPage = () => {
     const scrollThreshold = 500;
     
     //Card switch effect
-    const [switchState, setSwitchState] = useState(0);
+    const [switchState, setSwitchState] = useState(1);
     const maxPage = 8;
 
     //--- [Start] Components Styles ---
@@ -61,9 +61,9 @@ const MainPage = () => {
                     setSwitchState(switchState+1);
                 // console.log('next');
             }
-            else if (wheelRef.current < 0) {
+            else if (wheelRef.current < 1) {
                 wheelRef.current = scrollThreshold;
-                if (switchState-1 >= 0)
+                if (switchState-1 >= 1)
                     setSwitchState(switchState-1);
                 // console.log('prev');
             }
@@ -103,6 +103,28 @@ const MainPage = () => {
     
     //--- [End] wheel evnet handler ---
 
+    //--- [Start] Cards ---
+
+    const TitleCard = () => {
+        const cardHeight = document.getElementsByClassName('titleDiv').height;
+        const titleHeight = document.getElementsByClassName('titles').height;
+
+        const titleStyle = {
+            marginTop: `${cardHeight/2-titleHeight}`, 
+            height: '720px'
+        }
+
+        return (
+            <div className='Cards'>
+                <div id='titleDiv'>
+                    <p className='titles' id='title1'>OnionLog_</p>
+                </div>
+                <button className='titleBtn' type='submit' onClick={() => {}}>↓포트폴리오</button>
+                <button className='titleBtn' type='submit' onClick={() => {}}>→블로그</button>
+            </div>
+        );
+    }
+
     return (
         <div className='MainPage'>
             <header>
@@ -116,7 +138,16 @@ const MainPage = () => {
             </header>
             <div className='MainBody' style={bodyStyle}>
                 <div className='Card' style={cardStyle} ref={cardRef}>
-
+                    <button className='PageBtn' id='up' type='submit'>↑</button>
+                    {switchState === 1 && <TitleCard></TitleCard>}
+                    {switchState === 2 && <p>Page 2 Content</p>}
+                    {switchState === 3 && <p>Page 3 Content</p>}
+                    {switchState === 4 && <p>Page 4 Content</p>}
+                    {switchState === 5 && <p>Page 5 Content</p>}
+                    {switchState === 6 && <p>Page 6 Content</p>}
+                    {switchState === 7 && <p>Page 7 Content</p>}
+                    {switchState === 8 && <p>Page 8 Content</p>}
+                    <button className='PageBtn' id='down' type='submit'>↓</button>
                 </div>
             </div>
             <footer>
