@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import './MainPage.css';
 
 const MainPage = () => {
+    const navigate = useNavigate();
     const isLargeScreen = useMediaQuery({minDeviceWidth: 1180});
     const isLargeHeight = useMediaQuery({minDeviceHeight: 899});
 
@@ -15,6 +16,7 @@ const MainPage = () => {
     
     //Card switch effect
     const [switchState, setSwitchState] = useState(1);
+    const [pageBtnState, setPageBtnState] = useState(1);
     const maxPage = 8;
 
     //--- [Start] Components Styles ---
@@ -46,7 +48,31 @@ const MainPage = () => {
 
     useEffect(() => {
         console.log(`page: ${switchState}`);
+        if(switchState === 1) {
+            setPageBtnState(1);
+        }
+        else if(switchState === 8) {
+            setPageBtnState(2);
+        }
+        else {
+            setPageBtnState(0);
+        }
+        
     }, [switchState]);
+
+    useEffect(() => {
+        console.log(`pb: ${pageBtnState}`);
+    }, [pageBtnState])
+
+    const btnUpStyle = {
+        opacity: pageBtnState === 1 ? 0 : 1,
+        pointerEvents: pageBtnState === 1 ? 'none' : 'auto'
+    }
+
+    const btnDownStyle = {
+        opacity: pageBtnState === 2 ? 0 : 1,
+        pointerEvents: pageBtnState === 2 ? 'none' : 'auto'
+    }
 
     //--- [End] Switch card handler ---
 
@@ -79,7 +105,6 @@ const MainPage = () => {
             e.stopPropagation();
             // console.log(Boolean(timerRef.current));
         }
-
         
         if (!timerRef.current) {
             timerRef.current = setTimeout (() => {
@@ -106,21 +131,17 @@ const MainPage = () => {
     //--- [Start] Cards ---
 
     const TitleCard = () => {
-        const cardHeight = document.getElementsByClassName('titleDiv').height;
-        const titleHeight = document.getElementsByClassName('titles').height;
-
-        const titleStyle = {
-            marginTop: `${cardHeight/2-titleHeight}`, 
-            height: '720px'
+        const onClickPortf = () => {
+            setSwitchState(2);
         }
 
         return (
-            <div className='Cards'>
-                <div id='titleDiv'>
-                    <p className='titles' id='title1'>OnionLog_</p>
+            <div className='Cards' id='titl'>
+                <p className='titles' id='title1'>OnionLog<span>_</span></p>
+                <div id='titleBtns'>
+                    <button className='titleBtn' type='submit' onClick={onClickPortf}>↓포트폴리오</button>
+                    <button className='titleBtn' id='toBlog' type='submit' onClick={() => {navigate('/blog')}}>→블로그</button>
                 </div>
-                <button className='titleBtn' type='submit' onClick={() => {}}>↓포트폴리오</button>
-                <button className='titleBtn' type='submit' onClick={() => {}}>→블로그</button>
             </div>
         );
     }
@@ -138,7 +159,7 @@ const MainPage = () => {
             </header>
             <div className='MainBody' style={bodyStyle}>
                 <div className='Card' style={cardStyle} ref={cardRef}>
-                    <button className='PageBtn' id='up' type='submit'>↑</button>
+                    <button className='PageBtn' id='up' type='submit' style={btnUpStyle}>↑</button>
                     {switchState === 1 && <TitleCard></TitleCard>}
                     {switchState === 2 && <p>Page 2 Content</p>}
                     {switchState === 3 && <p>Page 3 Content</p>}
@@ -147,7 +168,7 @@ const MainPage = () => {
                     {switchState === 6 && <p>Page 6 Content</p>}
                     {switchState === 7 && <p>Page 7 Content</p>}
                     {switchState === 8 && <p>Page 8 Content</p>}
-                    <button className='PageBtn' id='down' type='submit'>↓</button>
+                    <button className='PageBtn' id='down' type='submit' style={btnDownStyle}>↓</button>
                 </div>
             </div>
             <footer>
