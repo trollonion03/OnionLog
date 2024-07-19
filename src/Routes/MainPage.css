@@ -322,6 +322,10 @@ footer {
     max-width: 64px;
 }
 
+.icons {
+    margin-top: 10px;
+}
+
 .Splitter {
     background-color: white;
     width: 2px;
