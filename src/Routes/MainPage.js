@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import './MainPage.css';
+import trollonion from '../imgs/trollonion.jpeg'
+import github from '../imgs/github.svg'
 
 const MainPage = () => {
     const navigate = useNavigate();
@@ -146,6 +148,22 @@ const MainPage = () => {
         );
     }
 
+    const TitleCard2 = () => {
+        return (
+            <div className='Cards'>
+                <div id='intr'>
+                    <img src={trollonion} id='trollpa' alt='trollonion'></img>
+                    <div id='intro'>
+                        <p id='intro1'>Hello World!</p>
+                        <p id='intro2'>임베디드 SW 개발자 김형언입니다!</p>
+                        <p id='intro3'>건국대학교 컴퓨터공학부 재학 &#40;2022.03.~&#41;<br></br>ASPL INC. &#40;2022.01.~&#41;</p>
+                        <button id='toGithub' type='submit'><img src={github}></img><p>github</p></button>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className='MainPage'>
             <header>
@@ -159,16 +177,16 @@ const MainPage = () => {
             </header>
             <div className='MainBody' style={bodyStyle}>
                 <div className='Card' style={cardStyle} ref={cardRef}>
-                    <button className='PageBtn' id='up' type='submit' style={btnUpStyle}>↑</button>
+                    <button className='PageBtn' id='up' type='submit' style={btnUpStyle} onClick={() => {setSwitchState(switchState-1);}}>↑</button>
                     {switchState === 1 && <TitleCard></TitleCard>}
-                    {switchState === 2 && <p>Page 2 Content</p>}
+                    {switchState === 2 && <TitleCard2></TitleCard2>}
                     {switchState === 3 && <p>Page 3 Content</p>}
                     {switchState === 4 && <p>Page 4 Content</p>}
                     {switchState === 5 && <p>Page 5 Content</p>}
                     {switchState === 6 && <p>Page 6 Content</p>}
                     {switchState === 7 && <p>Page 7 Content</p>}
                     {switchState === 8 && <p>Page 8 Content</p>}
-                    <button className='PageBtn' id='down' type='submit' style={btnDownStyle}>↓</button>
+                    <button className='PageBtn' id='down' type='submit' style={btnDownStyle} onClick={() => {setSwitchState(switchState+1);}}>↓</button>
                 </div>
             </div>
             <footer>
