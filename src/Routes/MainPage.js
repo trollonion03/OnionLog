@@ -3,7 +3,13 @@ import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import './MainPage.css';
 import trollonion from '../imgs/trollonion.jpeg'
-import github from '../imgs/github.svg'
+import github from '../imgs/github.svg';
+import c from '../imgs/c.png';
+import cpp from '../imgs/cpp.png';
+import kotlin from '../imgs/kotlin.png';
+import java from '../imgs/java.png';
+import python from '../imgs/python.png';
+
 
 const MainPage = () => {
     const navigate = useNavigate();
@@ -157,7 +163,72 @@ const MainPage = () => {
                         <p id='intro1'>Hello World!</p>
                         <p id='intro2'>임베디드 SW 개발자 김형언입니다!</p>
                         <p id='intro3'>건국대학교 컴퓨터공학부 재학 &#40;2022.03.~&#41;<br></br>ASPL INC. &#40;2022.01.~&#41;</p>
-                        <button id='toGithub' type='submit'><img src={github}></img><p>github</p></button>
+                        <button id='toGithub' type='submit' onClick={() => {window.open('https://www.github.com/trollonion03', '_blank');}}>
+                            <img src={github} alt='github'></img><p>github</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    const StackIconContainer = ({src, description, style}) =>{
+        return (
+            <div className='icon-container' style={style}>
+                <img src={src} alt={description}></img>
+                <p>{description}</p>
+            </div>
+        )
+    }
+
+    const mainStackStyle = {
+        marginLeft: '20px',
+        float: 'right'
+    }
+
+    const mainStackDummy = {
+        marginLeft: '20px',
+        float: 'right',
+        opacity: '0'
+    }
+
+    const subStackStyle = {
+        marginRight: '20px',
+        float: 'left'
+    }
+
+    const subStackDummy = {
+        marginRight: '20px',
+        float: 'left',
+        opacity: '0'
+    }
+
+    const SkillCard = () => {
+        return (
+            <div className='Cards'>
+                <div className='title-Container'>
+                    <p className='Contents-title' id='ct1'>Skills</p>
+                </div>
+                <div className='Contents'>
+                    <p className='Contents-Subtitle' id='cst1'>Languages</p>
+                    <div className='Stacks-Container'>
+                        <div className='main-stacks'>
+                            <p>Main Stacks</p>
+                            <div className='icons'>
+                                <StackIconContainer src={cpp} description={'C++'} style={mainStackStyle}></StackIconContainer>
+                                <StackIconContainer src={c} description={'C'} style={mainStackStyle}></StackIconContainer>
+                                <StackIconContainer src={c} description={'C'} style={mainStackDummy}></StackIconContainer>
+                            </div>
+                        </div>
+                        <div className='Splitter'></div>
+                        <div className='sub-stacks'>
+                            <p>Sub Stacks</p>
+                            <div className='icons'>
+                                <StackIconContainer src={kotlin} description={'Kotlin'} style={subStackStyle}></StackIconContainer>
+                                <StackIconContainer src={java} description={'Java'} style={subStackStyle}></StackIconContainer>
+                                <StackIconContainer src={python} description={'Python'} style={subStackStyle}></StackIconContainer>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -180,7 +251,7 @@ const MainPage = () => {
                     <button className='PageBtn' id='up' type='submit' style={btnUpStyle} onClick={() => {setSwitchState(switchState-1);}}>↑</button>
                     {switchState === 1 && <TitleCard></TitleCard>}
                     {switchState === 2 && <TitleCard2></TitleCard2>}
-                    {switchState === 3 && <p>Page 3 Content</p>}
+                    {switchState === 3 && <SkillCard></SkillCard>}
                     {switchState === 4 && <p>Page 4 Content</p>}
                     {switchState === 5 && <p>Page 5 Content</p>}
                     {switchState === 6 && <p>Page 6 Content</p>}

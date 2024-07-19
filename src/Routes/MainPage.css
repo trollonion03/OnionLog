@@ -289,11 +289,110 @@ footer {
     margin-top: 54px;
 }
 
+#toGithub:hover {
+    cursor: pointer;
+}
+
 #toGithub>p {
     font-family: 'galmuri11';
     margin-left: 10px;
     font-size: 24px;
+    line-height: 32px;
     color: #59B5F8;
     margin-block-start: 0em;
     margin-block-end: 0em;
 }
+
+.icon-container {
+    width: 64px;
+}
+
+.icon-container>img {
+    width: 64px;
+    height: 64px;
+}
+
+.icon-container>p {
+    font-family: 'galmuri11';
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    max-width: 64px;
+}
+
+.Splitter {
+    background-color: white;
+    width: 2px;
+    height: 109px;
+    margin: 24px 24px 13px;
+}
+
+.Stacks-Container {
+    display: flex;
+}
+
+.main-stacks>p {
+    font-family: 'galmuri11';
+    margin-left: 10px;
+    font-size: 32px;
+    color: #A5A5A5;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    text-align: right;
+}
+
+.sub-stacks>p {
+    font-family: 'galmuri11';
+    font-size: 32px;
+    color: #A5A5A5;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+.Contents {
+    width: 905px;
+    height: 420px;
+    margin-bottom: 52px;
+}
+
+.Stacks-Container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    margin-top: 23px;
+}
+
+.Contents-Subtitle {
+    font-family: 'galmuri11';
+    font-size: 40px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+#cst1 {
+    background: linear-gradient(-78deg, #F4FF75 0%, #BCE93C 50%, #8CE974 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title-Container {
+    width: 905px;
+}
+
+.Contents-title {
+    font-family: 'galmuri11';
+    font-size: 40px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    text-align: left;
+}
+
+#ct1 {
+    background: linear-gradient(-70deg, #67FF76 0%, #88E4EA 25%, #E869B5 50%, #CC86E4 75%, #6589E5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
