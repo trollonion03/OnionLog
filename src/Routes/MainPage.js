@@ -150,7 +150,7 @@ const MainPage = () => {
 
         return (
             <div className='Cards' id='titl'>
-                <p className='titles' id='title1'>OnionLog<span>_</span></p>
+                <p className='titles' id='title1' data='OnionLog'>OnionLog<span>_</span></p>
                 <div id='titleBtns'>
                     <button className='titleBtn' id='toDown' type='submit' onClick={onClickPortf}>↓포트폴리오</button>
                     <button className='titleBtn' id='toBlog' type='submit' onClick={() => {navigate('/blog')}}>→블로그</button>
