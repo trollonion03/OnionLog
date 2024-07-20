@@ -133,7 +133,7 @@ footer {
     font-size: 64px;
 }
 
-.titles::before {
+.titles.firefox::before {
     content: attr(data);
     position: absolute;
     top: 0;

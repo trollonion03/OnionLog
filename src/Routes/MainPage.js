@@ -32,6 +32,9 @@ const MainPage = () => {
     const [pageBtnState, setPageBtnState] = useState(1);
     const maxPage = 8;
 
+    //Browser Detector
+    const isFirefox = typeof InstallTrigger !== 'undefined';
+
     //--- [Start] Components Styles ---
     const navStyle = {
         maxWidth: isLargeScreen ? 'calc(1180px - 20px)' : '100%',
@@ -150,7 +153,7 @@ const MainPage = () => {
 
         return (
             <div className='Cards' id='titl'>
-                <p className='titles' id='title1' data='OnionLog'>OnionLog<span>_</span></p>
+                <p className={`titles ${isFirefox ? 'firefox' : ''}`} id='title1' data='OnionLog'>OnionLog<span>_</span></p>
                 <div id='titleBtns'>
                     <button className='titleBtn' id='toDown' type='submit' onClick={onClickPortf}>↓포트폴리오</button>
                     <button className='titleBtn' id='toBlog' type='submit' onClick={() => {navigate('/blog')}}>→블로그</button>
