@@ -9,6 +9,11 @@ import cpp from '../imgs/cpp.png';
 import kotlin from '../imgs/kotlin.png';
 import java from '../imgs/java.png';
 import python from '../imgs/python.png';
+import android from '../imgs/android.png';
+import django from '../imgs/django.png';
+import mfc from '../imgs/mfc.png';
+import qt from '../imgs/qt.png';
+import defaultImg from '../imgs/none.png';
 
 
 const MainPage = () => {
@@ -197,6 +202,18 @@ const MainPage = () => {
         float: 'left'
     }
 
+    const subStackStyleLong = {
+        marginRight: '20px',
+        float: 'left',
+        letterSpacing: '-1px'
+    }
+
+    const subStackStyleLong2 = {
+        marginRight: '20px',
+        float: 'left',
+        letterSpacing: '-2.5px'
+    }
+
     const subStackDummy = {
         marginRight: '20px',
         float: 'left',
@@ -217,7 +234,7 @@ const MainPage = () => {
                             <div className='icons'>
                                 <StackIconContainer src={cpp} description={'C++'} style={mainStackStyle}></StackIconContainer>
                                 <StackIconContainer src={c} description={'C'} style={mainStackStyle}></StackIconContainer>
-                                <StackIconContainer src={c} description={'C'} style={mainStackDummy}></StackIconContainer>
+                                <StackIconContainer src={defaultImg} description={'none'} style={mainStackDummy}></StackIconContainer>
                             </div>
                         </div>
                         <div className='Splitter'></div>
@@ -227,6 +244,38 @@ const MainPage = () => {
                                 <StackIconContainer src={kotlin} description={'Kotlin'} style={subStackStyle}></StackIconContainer>
                                 <StackIconContainer src={java} description={'Java'} style={subStackStyle}></StackIconContainer>
                                 <StackIconContainer src={python} description={'Python'} style={subStackStyle}></StackIconContainer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    const SkillCard2 = () => {
+        return (
+            <div className='Cards'>
+                <div className='title-Container'>
+                    <p className='Contents-title' id='ct1'>Skills</p>
+                </div>
+                <div className='Contents'>
+                    <p className='Contents-Subtitle' id='cst2'>Flatforms &#38; Frameworks</p>
+                    <div className='Stacks-Container'>
+                        <div className='main-stacks'>
+                            <p>Main Stacks</p>
+                            <div className='icons'>
+                                <StackIconContainer src={mfc} description={'MFC'} style={mainStackStyle}></StackIconContainer>
+                                <StackIconContainer src={qt} description={'QT'} style={mainStackStyle}></StackIconContainer>
+                                <StackIconContainer src={defaultImg} description={'C2000'} style={mainStackStyle}></StackIconContainer>
+                            </div>
+                        </div>
+                        <div className='Splitter'></div>
+                        <div className='sub-stacks'>
+                            <p>Sub Stacks</p>
+                            <div className='icons'>
+                                <StackIconContainer src={django} description={'Django'} style={subStackStyleLong}></StackIconContainer>
+                                <StackIconContainer src={android} description={'Android'} style={subStackStyleLong2}></StackIconContainer>
+                                <StackIconContainer src={defaultImg} description={'none'} style={subStackDummy}></StackIconContainer>
                             </div>
                         </div>
                     </div>
@@ -252,7 +301,7 @@ const MainPage = () => {
                     {switchState === 1 && <TitleCard></TitleCard>}
                     {switchState === 2 && <TitleCard2></TitleCard2>}
                     {switchState === 3 && <SkillCard></SkillCard>}
-                    {switchState === 4 && <p>Page 4 Content</p>}
+                    {switchState === 4 && <SkillCard2></SkillCard2>}
                     {switchState === 5 && <p>Page 5 Content</p>}
                     {switchState === 6 && <p>Page 6 Content</p>}
                     {switchState === 7 && <p>Page 7 Content</p>}

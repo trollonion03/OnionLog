@@ -374,10 +374,17 @@ footer {
     font-size: 40px;
     margin-block-start: 0em;
     margin-block-end: 0em;
+    float: left;
 }
 
 #cst1 {
     background: linear-gradient(-78deg, #F4FF75 0%, #BCE93C 50%, #8CE974 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#cst2 {
+    background: linear-gradient(-85deg, #B275FF 17%, #3CCAE9 60%, #74BFE9 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -392,6 +399,7 @@ footer {
     margin-block-start: 0em;
     margin-block-end: 0em;
     text-align: left;
+    float: left;
 }
 
 #ct1 {
