@@ -309,6 +309,100 @@ const MainPage = () => {
         )
     }
 
+    const ResumeCard = () => {
+        return (
+            <div className='Cards'>
+                <div className='title-Container'>
+                    <p className='Contents-title' id='rt1'>Activity</p>
+                </div>
+                <div className='Contents'>
+                    <p className='Contents-Subtitle' id='ry1'>2023</p>
+                    <div className='Resume-Right'>
+                        <p className='Resume-Category'>ASPL INC.</p>
+                        <p>실시간 데이터 획득 시스템 UI 개발</p>
+                    </div>
+                    <div className='Resume-Left'>
+                        <p className='Resume-Category'>Personal</p>
+                        <p>
+                            Shouter - Whisper AI 기반 분산 처리 자막 생성 서비스<br></br>
+                            PySide6 기반 LMS 자동수강 프로그램<br></br>
+                            Turtlebot3를 이용한 디지털 트윈 주행 프로젝트
+                        </p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    const ResumeCard2 = () => {
+        return (
+            <div className='Cards'>
+                <div className='title-Container'>
+                    <p className='Contents-title' id='rt1'>Activity</p>
+                </div>
+                <div className='Contents'>
+                    <p className='Contents-Subtitle' id='ry2'>2022</p>
+                    <div className='Resume-Right'>
+                        <p className='Resume-Category'>ASPL INC.</p>
+                        <p>변압기 제어 소프트웨어 개발</p>
+                    </div>
+                    <div className='Resume-Left'>
+                        <p className='Resume-Category'>Personal</p>
+                        <p>
+                            KNSU 로켓 발사제어 시스템 개발
+                        </p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    const ResumeCard3 = () => {
+        return (
+            <div className='Cards'>
+                <div className='title-Container'>
+                    <p className='Contents-title' id='rt1'>Activity</p>
+                </div>
+                <div className='Contents'>
+                    <p className='Contents-Subtitle' id='ry3'>2020~2021</p>
+                    <div className='Resume-Right'>
+                        <p className='Resume-Category'>Personal(2021)</p>
+                        <p>
+                            Iot 기반 스마트 클래스룸 생태계 구축 프로젝트<br></br>
+                            Yolo v5 기반 다목적실 내 곰팡이 증식 방지 시스템 개발
+                        </p>
+                    </div>
+                    <div className='Resume-Left'>
+                        <p className='Resume-Category'>Personal(2020)</p>
+                        <p>
+                            차세대 뉴로모픽칩의 특징 및, AI, 자율주행 로봇 활용성에 대한 연구<br></br>
+                            대전지역 통합 범죄예방 어플리케이션 개발
+                        </p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    const ResumeCard4 = () => {
+        return (
+            <div className='Cards'>
+                <div className='title-Container'>
+                    <p className='Contents-title' id='rt1'>Activity</p>
+                </div>
+                <div className='Contents'>
+                    <p className='Contents-Subtitle' id='ry4'>2019</p>
+                    <div className='Resume-Right'>
+                        <p className='Resume-Category'>Personal</p>
+                        <p>
+                            안전 자전거 시스템 개발&#40;2019 한국코드페어 착한상상 부문 출전&#41;
+                        </p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className='MainPage'>
             <header>
@@ -327,10 +421,10 @@ const MainPage = () => {
                     {switchState === 2 && <TitleCard2></TitleCard2>}
                     {switchState === 3 && <SkillCard></SkillCard>}
                     {switchState === 4 && <SkillCard2></SkillCard2>}
-                    {switchState === 5 && <p>Page 5 Content</p>}
-                    {switchState === 6 && <p>Page 6 Content</p>}
-                    {switchState === 7 && <p>Page 7 Content</p>}
-                    {switchState === 8 && <p>Page 8 Content</p>}
+                    {switchState === 5 && <ResumeCard></ResumeCard>}
+                    {switchState === 6 && <ResumeCard2></ResumeCard2>}
+                    {switchState === 7 && <ResumeCard3></ResumeCard3>}
+                    {switchState === 8 && <ResumeCard4></ResumeCard4>}
                     <button className='PageBtn' id='down' type='submit' style={btnDownStyle} onClick={() => {setSwitchState(switchState+1);}}>↓</button>
                 </div>
             </div>
