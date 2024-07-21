@@ -28,6 +28,7 @@ const MainPage = () => {
     const scrollThreshold = 500;
     
     //Card switch effect
+    const [animationClass, setAnimationClass] = useState('');
     const [switchState, setSwitchState] = useState(1);
     const [pageBtnState, setPageBtnState] = useState(1);
     const maxPage = 8;
@@ -99,14 +100,18 @@ const MainPage = () => {
                 
             if (wheelRef.current > scrollThreshold) {
                 wheelRef.current = 0;
-                if (switchState+1 <= maxPage)
+                if (switchState+1 <= maxPage) {
+                    setAnimationClass('card-slide-bottom');
                     setSwitchState(switchState+1);
+                }
                 // console.log('next');
             }
             else if (wheelRef.current < 1) {
                 wheelRef.current = scrollThreshold;
-                if (switchState-1 >= 1)
+                if (switchState-1 >= 1) {
+                    setAnimationClass('card-slide-top');
                     setSwitchState(switchState-1);
+                }
                 // console.log('prev');
             }
                 
@@ -141,6 +146,23 @@ const MainPage = () => {
             }
         };
     }, [debounceWheelEvent]);
+
+    useEffect(() => {
+        const handleAnimationEnd = () => {
+            setAnimationClass('');
+        };
+
+        const cardElement = cardRef.current;
+        if (cardElement) {
+            cardElement.addEventListener('animationend', handleAnimationEnd);
+        }
+
+        return () => {
+            if (cardElement) {
+                cardElement.removeEventListener('animationend', handleAnimationEnd);
+            }
+        };
+    }, [animationClass]);
     
     //--- [End] wheel evnet handler ---
 
@@ -299,7 +321,7 @@ const MainPage = () => {
                 </div>
             </header>
             <div className='MainBody' style={bodyStyle}>
-                <div className='Card' style={cardStyle} ref={cardRef}>
+                <div className={`Card ${animationClass}`} style={cardStyle} ref={cardRef}>
                     <button className='PageBtn' id='up' type='submit' style={btnUpStyle} onClick={() => {setSwitchState(switchState-1);}}>↑</button>
                     {switchState === 1 && <TitleCard></TitleCard>}
                     {switchState === 2 && <TitleCard2></TitleCard2>}

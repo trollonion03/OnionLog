@@ -21,6 +21,36 @@
     font-style: normal;
 }
 
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.card-slide-top {
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+.card-slide-bottom {
+    animation: slideInFromBottom 0.5s ease-out;
+}
+
 header {
     position: fixed;
     top: 0;
