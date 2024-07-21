@@ -174,7 +174,7 @@ const MainPage = () => {
         }
 
         return (
-            <div className='Cards' id='titl'>
+            <div className={`Cards ${animationClass}`} id='titl'>
                 <p className={`titles ${isFirefox ? 'firefox' : ''}`} id='title1' data='OnionLog'>OnionLog<span>_</span></p>
                 <div id='titleBtns'>
                     <button className='titleBtn' id='toDown' type='submit' onClick={onClickPortf}>↓포트폴리오</button>
@@ -186,7 +186,7 @@ const MainPage = () => {
 
     const TitleCard2 = () => {
         return (
-            <div className='Cards'>
+            <div className={`Cards ${animationClass}`}>
                 <div id='intr'>
                     <img src={trollonion} id='trollpa' alt='trollonion'></img>
                     <div id='intro'>
@@ -247,7 +247,7 @@ const MainPage = () => {
 
     const SkillCard = () => {
         return (
-            <div className='Cards'>
+            <div className={`Cards ${animationClass}`}>
                 <div className='title-Container'>
                     <p className='Contents-title' id='ct1'>Skills</p>
                 </div>
@@ -279,7 +279,7 @@ const MainPage = () => {
 
     const SkillCard2 = () => {
         return (
-            <div className='Cards'>
+            <div className={`Cards ${animationClass}`}>
                 <div className='title-Container'>
                     <p className='Contents-title' id='ct1'>Skills</p>
                 </div>
@@ -311,7 +311,7 @@ const MainPage = () => {
 
     const ResumeCard = () => {
         return (
-            <div className='Cards'>
+            <div className={`Cards ${animationClass}`}>
                 <div className='title-Container'>
                     <p className='Contents-title' id='rt1'>Activity</p>
                 </div>
@@ -336,7 +336,7 @@ const MainPage = () => {
 
     const ResumeCard2 = () => {
         return (
-            <div className='Cards'>
+            <div className={`Cards ${animationClass}`}>
                 <div className='title-Container'>
                     <p className='Contents-title' id='rt1'>Activity</p>
                 </div>
@@ -359,7 +359,7 @@ const MainPage = () => {
 
     const ResumeCard3 = () => {
         return (
-            <div className='Cards'>
+            <div className={`Cards ${animationClass}`}>
                 <div className='title-Container'>
                     <p className='Contents-title' id='rt1'>Activity</p>
                 </div>
@@ -386,7 +386,7 @@ const MainPage = () => {
 
     const ResumeCard4 = () => {
         return (
-            <div className='Cards'>
+            <div className={`Cards ${animationClass}`}>
                 <div className='title-Container'>
                     <p className='Contents-title' id='rt1'>Activity</p>
                 </div>
@@ -415,8 +415,8 @@ const MainPage = () => {
                 </div>
             </header>
             <div className='MainBody' style={bodyStyle}>
-                <div className={`Card ${animationClass}`} style={cardStyle} ref={cardRef}>
-                    <button className='PageBtn' id='up' type='submit' style={btnUpStyle} onClick={() => {setSwitchState(switchState-1);}}>↑</button>
+                <div className='Card' style={cardStyle} ref={cardRef}>
+                    <button className='PageBtn' id='up' type='submit' style={btnUpStyle} onClick={() => {setSwitchState(switchState-1); setAnimationClass('card-slide-top');}}>↑</button>
                     {switchState === 1 && <TitleCard></TitleCard>}
                     {switchState === 2 && <TitleCard2></TitleCard2>}
                     {switchState === 3 && <SkillCard></SkillCard>}
@@ -425,7 +425,7 @@ const MainPage = () => {
                     {switchState === 6 && <ResumeCard2></ResumeCard2>}
                     {switchState === 7 && <ResumeCard3></ResumeCard3>}
                     {switchState === 8 && <ResumeCard4></ResumeCard4>}
-                    <button className='PageBtn' id='down' type='submit' style={btnDownStyle} onClick={() => {setSwitchState(switchState+1);}}>↓</button>
+                    <button className='PageBtn' id='down' type='submit' style={btnDownStyle} onClick={() => {setSwitchState(switchState+1); setAnimationClass('card-slide-bottom');}}>↓</button>
                 </div>
             </div>
             <footer>
