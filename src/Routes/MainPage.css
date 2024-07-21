@@ -21,6 +21,11 @@
     font-style: normal;
 }
 
+p {
+    margin-block-start: 0em;
+    margin-block-end: 0em; 
+}
+
 header {
     position: fixed;
     top: 0;
@@ -202,8 +207,6 @@ footer {
     transform: translateY(-100%) translateX(-50%);
     left: 50%;
     margin-left: 16px;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
 }
 
 #up {
@@ -279,8 +282,6 @@ footer {
 #intro>p {
     font-family: 'galmuri11';
     color: white;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
 }
 
 #intro1 {
@@ -317,8 +318,6 @@ footer {
     font-size: 24px;
     line-height: 32px;
     color: #59B5F8;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
 }
 
 .icon-container {
@@ -332,8 +331,6 @@ footer {
 
 .icon-container>p {
     font-family: 'galmuri11';
-    margin-block-start: 0em;
-    margin-block-end: 0em;
     color: white;
     font-size: 20px;
     text-align: center;
@@ -359,9 +356,7 @@ footer {
     font-family: 'galmuri11';
     margin-left: 10px;
     font-size: 32px;
-    color: #A5A5A5;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+    color: #A5A5A5;    
     text-align: right;
 }
 
@@ -369,8 +364,7 @@ footer {
     font-family: 'galmuri11';
     font-size: 32px;
     color: #A5A5A5;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+    
 }
 
 .Contents {
@@ -390,8 +384,7 @@ footer {
 .Contents-Subtitle {
     font-family: 'galmuri11';
     font-size: 40px;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+    
     float: left;
 }
 
@@ -414,8 +407,7 @@ footer {
 .Contents-title {
     font-family: 'galmuri11';
     font-size: 40px;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+    
     text-align: left;
     float: left;
 }
@@ -426,3 +418,51 @@ footer {
     -webkit-text-fill-color: transparent;
 }
 
+.Resume-Right {
+    margin-top: 77.73px;
+    font-family: 'galmuri11';
+    text-align: right;
+    color: white;
+    font-size: 24px;
+}
+
+.Resume-Left {
+    margin-top: 25px;
+    font-family: 'galmuri11';
+    text-align: left;
+    color: white;
+    font-size: 24px;
+}
+
+.Resume-Category {
+    font-size: 32px;
+    color: #A5A5A5;
+}
+
+#rt1 {
+    background: linear-gradient(103deg, #67FF76 0%, #88E4EA 25%, #E869B5 50%, #CC86E4 75%, #6589E5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#ry1 {
+    background: linear-gradient(-66deg, #F4FF75 0%, #BCE93C 50%, #8CE974 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#ry2 {
+    background: linear-gradient(-66deg, #B275FF 17%, #3CCAE9 60%, #74BFE9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#ry3 {
+    background: linear-gradient(-79deg, #FFA775 17%, #E95B3C 60%, #E974C8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#ry4 {
+    color: #FF5858;
+}
