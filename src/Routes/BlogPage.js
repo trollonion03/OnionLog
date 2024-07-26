@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import './BlogPage.css'
 
 const BlogPage = () => {
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ const BlogPage = () => {
                 </div>
             </header>
             <div className='MainBody' style={bodyStyle}>
-                
+                <p id='msg'>블로그 준비중입니다.</p>
             </div>
             <footer>
                 <div className='FooterBar' style={divStyle}>
