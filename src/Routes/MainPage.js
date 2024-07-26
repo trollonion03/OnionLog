@@ -58,13 +58,13 @@ const MainPage = () => {
     //--- [End] Components Styles ---
 
     const onClickLogin = () => {
-        console.log('login');
+        // console.log('login');
     }
 
     //--- [Start] Switch card handler ---
 
     useEffect(() => {
-        console.log(`page: ${switchState}`);
+        // console.log(`page: ${switchState}`);
         if(switchState === 1) {
             setPageBtnState(1);
         }
@@ -78,7 +78,7 @@ const MainPage = () => {
     }, [switchState]);
 
     useEffect(() => {
-        console.log(`pb: ${pageBtnState}`);
+        // console.log(`pb: ${pageBtnState}`);
     }, [pageBtnState])
 
     const btnUpStyle = {
