@@ -408,8 +408,8 @@ const MainPage = () => {
             <header>
                 <div className='NavBar' style={navStyle}>
                     <div>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to='/'>OnionLog_</Link>
-                        <Link style={{ textDecoration: 'none', color: 'black', fontSize: '18px', marginLeft: '63px' }} to='blog'>블로그</Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} reloadDocument to='/'>OnionLog_</Link>
+                        <Link style={{ textDecoration: 'none', color: 'black', fontSize: '18px', marginLeft: '63px' }} to='/blog'>블로그</Link>
                     </div>
                     <button type='submit' onClick={onClickLogin}>로그인</button>
                 </div>
