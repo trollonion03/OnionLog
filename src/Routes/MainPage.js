@@ -31,7 +31,7 @@ const MainPage = () => {
     const [animationClass, setAnimationClass] = useState('');
     const [switchState, setSwitchState] = useState(1);
     const [pageBtnState, setPageBtnState] = useState(1);
-    const maxPage = 8;
+    const maxPage = 6;
 
     //Browser Detector
     const isFirefox = typeof InstallTrigger !== 'undefined';
@@ -419,12 +419,12 @@ const MainPage = () => {
                     <button className='PageBtn' id='up' type='submit' style={btnUpStyle} onClick={() => {setSwitchState(switchState-1); setAnimationClass('card-slide-top');}}>↑</button>
                     {switchState === 1 && <TitleCard></TitleCard>}
                     {switchState === 2 && <TitleCard2></TitleCard2>}
-                    {switchState === 3 && <SkillCard></SkillCard>}
-                    {switchState === 4 && <SkillCard2></SkillCard2>}
-                    {switchState === 5 && <ResumeCard></ResumeCard>}
-                    {switchState === 6 && <ResumeCard2></ResumeCard2>}
-                    {switchState === 7 && <ResumeCard3></ResumeCard3>}
-                    {switchState === 8 && <ResumeCard4></ResumeCard4>}
+                    {/* {switchState === 3 && <SkillCard></SkillCard>} */}
+                    {/* {switchState === 4 && <SkillCard2></SkillCard2>} */}
+                    {switchState === 3 && <ResumeCard></ResumeCard>}
+                    {switchState === 4 && <ResumeCard2></ResumeCard2>}
+                    {switchState === 5 && <ResumeCard3></ResumeCard3>}
+                    {switchState === 6 && <ResumeCard4></ResumeCard4>}
                     <button className='PageBtn' id='down' type='submit' style={btnDownStyle} onClick={() => {setSwitchState(switchState+1); setAnimationClass('card-slide-bottom');}}>↓</button>
                 </div>
             </div>
