@@ -58,7 +58,7 @@ const MainPage = () => {
     //--- [End] Components Styles ---
 
     const onClickLogin = () => {
-        // console.log('login');
+        console.log('login');
     }
 
     //--- [Start] Switch card handler ---
