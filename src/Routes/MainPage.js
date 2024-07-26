@@ -64,11 +64,11 @@ const MainPage = () => {
     //--- [Start] Switch card handler ---
 
     useEffect(() => {
-        // console.log(`page: ${switchState}`);
+        console.log(`page: ${switchState}`);
         if(switchState === 1) {
             setPageBtnState(1);
         }
-        else if(switchState === 8) {
+        else if(switchState === 6) {
             setPageBtnState(2);
         }
         else {
@@ -78,7 +78,7 @@ const MainPage = () => {
     }, [switchState]);
 
     useEffect(() => {
-        // console.log(`pb: ${pageBtnState}`);
+        console.log(`pb: ${pageBtnState}`);
     }, [pageBtnState])
 
     const btnUpStyle = {
@@ -124,7 +124,7 @@ const MainPage = () => {
         if(cardRef.current && cardRef.current.contains(e.target)) {
             e.preventDefault();
             e.stopPropagation();
-            // console.log(Boolean(timerRef.current));
+            console.log(Boolean(timerRef.current));
         }
         
         if (!timerRef.current) {
