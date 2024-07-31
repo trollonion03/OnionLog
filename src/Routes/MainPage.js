@@ -18,8 +18,10 @@ import defaultImg from '../imgs/none.png';
 
 const MainPage = () => {
     const navigate = useNavigate();
-    const isLargeScreen = useMediaQuery({minDeviceWidth: 1180});
-    const isLargeHeight = useMediaQuery({minDeviceHeight: 899});
+    const isLargeScreen = useMediaQuery({maxDeviceWidth: 1200});
+    const isLargeHeight = useMediaQuery({minDeviceHeight: 1000});
+    const notMobileHeader = useMediaQuery({minDeviceWidth: 430});
+    const isMinCardWidth = useMediaQuery({maxDeviceWidth: 1000});
 
     //mouse scroll effect
     const cardRef = useRef(null);
@@ -38,21 +40,21 @@ const MainPage = () => {
 
     //--- [Start] Components Styles ---
     const navStyle = {
-        maxWidth: isLargeScreen ? 'calc(1180px - 20px)' : '100%',
+        maxWidth: isLargeScreen ?  '100vw' : 'calc(1180px - 20px)',
     };
 
     const divStyle = {
-        maxWidth: isLargeScreen ? '1180px' : '100%',
+        maxWidth: isLargeScreen ? '100%' : '1180px',
     };
 
     const bodyStyle = {
-        maxWidth: isLargeScreen ? '1180px' : '100%',
-        height: isLargeHeight? '770px' : 'calc(100vh - 102px)' 
-    }
+        maxWidth: isLargeScreen ? '100%' : '1180px',
+        height: 'calc(100vh - 77px - 25px - 77px)' 
+    };
 
     const cardStyle = {
-        width: isLargeScreen ? '1180px' : '100%',
-        height: '720px'
+        width: isLargeScreen ?  '100%': '1180px',
+        height: isLargeHeight ? '720px' : 'calc(100vh - 77px - 25px - 77px - 20px)'
     }
 
     //--- [End] Components Styles ---
@@ -169,16 +171,32 @@ const MainPage = () => {
     //--- [Start] Cards ---
 
     const TitleCard = () => {
+        const isLargeWidthCards = useMediaQuery({minDeviceWidth: 400});
+        const isLargeHeightCards = useMediaQuery({minDeviceHeight: 750});
+
+        const titleTextStyle = {
+            fontSize: isLargeWidthCards ? '64px' : '56px',
+        };
+
+        const titleBtnTextStyle = {
+            fontSize: isLargeWidthCards ? '32px' : '24px',
+        };
+
+        const titleBtnStyle = {
+            marginTop: isLargeHeightCards ? '52px': '30px',
+        }
+
+
         const onClickPortf = () => {
             setSwitchState(2);
         }
 
         return (
             <div className={`Cards ${animationClass}`} id='titl'>
-                <p className={`titles ${isFirefox ? 'firefox' : ''}`} id='title1' data='OnionLog'>OnionLog<span>_</span></p>
-                <div id='titleBtns'>
-                    <button className='titleBtn' id='toDown' type='submit' onClick={onClickPortf}>↓포트폴리오</button>
-                    <button className='titleBtn' id='toBlog' type='submit' onClick={() => {navigate('/blog')}}>→블로그</button>
+                <p className={`titles ${isFirefox ? 'firefox' : ''}`} style={titleTextStyle} id='title1' data='OnionLog'>OnionLog<span>_</span></p>
+                <div id='titleBtns' style={titleBtnStyle}>
+                    <button className='titleBtn' style={titleBtnTextStyle} id='toDown' type='submit' onClick={onClickPortf}>↓포트폴리오</button>
+                    <button className='titleBtn' style={titleBtnTextStyle} id='toBlog' type='submit' onClick={() => {navigate('/blog')}}>→블로그</button>
                 </div>
             </div>
         );
@@ -409,7 +427,7 @@ const MainPage = () => {
                 <div className='NavBar' style={navStyle}>
                     <div>
                         <Link style={{ textDecoration: 'none', color: 'black' }} reloadDocument to='/'>OnionLog_</Link>
-                        <Link style={{ textDecoration: 'none', color: 'black', fontSize: '18px', marginLeft: '63px' }} to='/blog'>블로그</Link>
+                        {notMobileHeader && <Link style={{ textDecoration: 'none', color: 'black', fontSize: '18px', marginLeft: '63px' }} to='/blog'>블로그</Link>}
                     </div>
                     <button type='submit' onClick={onClickLogin}>로그인</button>
                 </div>
