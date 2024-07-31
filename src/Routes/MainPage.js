@@ -53,9 +53,34 @@ const MainPage = () => {
     };
 
     const cardStyle = {
-        width: isLargeScreen ?  '100%': '1180px',
+        width: isLargeScreen ?  '100%' : '1180px',
         height: isLargeHeight ? '720px' : 'calc(100vh - 77px - 25px - 77px - 20px)'
     }
+
+    const subTitleStyle = {
+        width: isMinCardWidth ? 'calc(100% - 50px)' : '905px',
+    }
+
+    const resumeContentStyle = {
+        width: isMinCardWidth ? 'calc(100% - 50px)' : '905px',
+        height: isLargeHeight ? '420px' : '',
+        marginBottom: notMobileHeader ? '52px' : '42px'
+    }
+
+    const resumeTextStyle1 = {
+        fontSize: notMobileHeader ? '40px' : '32px',
+    }
+
+    const resumeTextStyle2 = {
+        fontSize: notMobileHeader ? '32px' : '24px',
+    }
+
+    const resumeTextStyle3 = {
+        fontSize: notMobileHeader ? '24px' : '16px',
+    }
+
+    //40 40 32 24
+    //32 32 24 16
 
     //--- [End] Components Styles ---
 
@@ -330,18 +355,18 @@ const MainPage = () => {
     const ResumeCard = () => {
         return (
             <div className={`Cards ${animationClass}`}>
-                <div className='title-Container'>
-                    <p className='Contents-title' id='rt1'>Activity</p>
+                <div className='title-Container' style={subTitleStyle}>
+                    <p className='Contents-title' id='rt1' style={resumeTextStyle1}>Activity</p>
                 </div>
-                <div className='Contents'>
-                    <p className='Contents-Subtitle' id='ry1'>2023</p>
+                <div className='Contents' style={resumeContentStyle}>
+                    <p className='Contents-Subtitle' id='ry1' style={resumeTextStyle1}>2023</p>
                     <div className='Resume-Right'>
-                        <p className='Resume-Category'>ASPL INC.</p>
-                        <p>실시간 데이터 획득 시스템 UI 개발</p>
+                        <p className='Resume-Category' style={resumeTextStyle2}>ASPL INC.</p>
+                        <p style={resumeTextStyle3}>실시간 데이터 획득 시스템 UI 개발</p>
                     </div>
                     <div className='Resume-Left'>
-                        <p className='Resume-Category'>Personal</p>
-                        <p>
+                        <p className='Resume-Category' style={resumeTextStyle2}>Personal</p>
+                        <p style={resumeTextStyle3}>
                             Shouter - Whisper AI 기반 분산 처리 자막 생성 서비스<br></br>
                             PySide6 기반 LMS 자동수강 프로그램<br></br>
                             Turtlebot3를 이용한 디지털 트윈 주행 프로젝트
@@ -355,18 +380,18 @@ const MainPage = () => {
     const ResumeCard2 = () => {
         return (
             <div className={`Cards ${animationClass}`}>
-                <div className='title-Container'>
-                    <p className='Contents-title' id='rt1'>Activity</p>
+                <div className='title-Container' style={subTitleStyle}>
+                    <p className='Contents-title' id='rt1' style={resumeTextStyle1}>Activity</p>
                 </div>
-                <div className='Contents'>
-                    <p className='Contents-Subtitle' id='ry2'>2022</p>
+                <div className='Contents' style={resumeContentStyle}>
+                    <p className='Contents-Subtitle' id='ry2' style={resumeTextStyle1}>2022</p>
                     <div className='Resume-Right'>
-                        <p className='Resume-Category'>ASPL INC.</p>
-                        <p>변압기 제어 소프트웨어 개발</p>
+                        <p className='Resume-Category' style={resumeTextStyle2}>ASPL INC.</p>
+                        <p style={resumeTextStyle3}>변압기 제어 소프트웨어 개발</p>
                     </div>
                     <div className='Resume-Left'>
-                        <p className='Resume-Category'>Personal</p>
-                        <p>
+                        <p className='Resume-Category' style={resumeTextStyle2}>Personal</p>
+                        <p style={resumeTextStyle3}>
                             KNSU 로켓 발사제어 시스템 개발
                         </p>
                     </div>
@@ -378,21 +403,21 @@ const MainPage = () => {
     const ResumeCard3 = () => {
         return (
             <div className={`Cards ${animationClass}`}>
-                <div className='title-Container'>
-                    <p className='Contents-title' id='rt1'>Activity</p>
+                <div className='title-Container' style={subTitleStyle}>
+                    <p className='Contents-title' id='rt1' style={resumeTextStyle1}>Activity</p>
                 </div>
-                <div className='Contents'>
-                    <p className='Contents-Subtitle' id='ry3'>2020~2021</p>
+                <div className='Contents' style={resumeContentStyle}>
+                    <p className='Contents-Subtitle' id='ry3' style={resumeTextStyle1}>2020~2021</p>
                     <div className='Resume-Right'>
-                        <p className='Resume-Category'>Personal(2021)</p>
-                        <p>
+                        <p className='Resume-Category' style={resumeTextStyle2}>Personal(2021)</p>
+                        <p style={resumeTextStyle3}>
                             Iot 기반 스마트 클래스룸 생태계 구축 프로젝트<br></br>
                             Yolo v5 기반 다목적실 내 곰팡이 증식 방지 시스템 개발
                         </p>
                     </div>
                     <div className='Resume-Left'>
-                        <p className='Resume-Category'>Personal(2020)</p>
-                        <p>
+                        <p className='Resume-Category' style={resumeTextStyle2}>Personal(2020)</p>
+                        <p style={resumeTextStyle3}>
                             차세대 뉴로모픽칩의 특징 및, AI, 자율주행 로봇 활용성에 대한 연구<br></br>
                             대전지역 통합 범죄예방 어플리케이션 개발
                         </p>
@@ -405,14 +430,14 @@ const MainPage = () => {
     const ResumeCard4 = () => {
         return (
             <div className={`Cards ${animationClass}`}>
-                <div className='title-Container'>
-                    <p className='Contents-title' id='rt1'>Activity</p>
+                <div className='title-Container' style={subTitleStyle}>
+                    <p className='Contents-title' id='rt1' style={resumeTextStyle1}>Activity</p>
                 </div>
-                <div className='Contents'>
-                    <p className='Contents-Subtitle' id='ry4'>2019</p>
+                <div className='Contents' style={resumeContentStyle}>
+                    <p className='Contents-Subtitle' id='ry4' style={resumeTextStyle1}>2019</p>
                     <div className='Resume-Right'>
-                        <p className='Resume-Category'>Personal</p>
-                        <p>
+                        <p className='Resume-Category' style={resumeTextStyle2}>Personal</p>
+                        <p style={resumeTextStyle3}>
                             안전 자전거 시스템 개발&#40;2019 한국코드페어 착한상상 부문 출전&#41;
                         </p>
                     </div>
