@@ -228,15 +228,51 @@ const MainPage = () => {
     }
 
     const TitleCard2 = () => {
+        const isIntrMinWidth = useMediaQuery({minDeviceWidth: 954});
+        const isMinImgWidth = useMediaQuery({minDeviceWidth: 860})
+        const isLargeHeightCards = useMediaQuery({minDeviceHeight: 750});
+
+        const imgStyle = {
+            display: isMinImgWidth ? '' : 'none',
+        }
+
+        const displayStyle = {
+            float: isIntrMinWidth ? '' : 'none',
+        }
+
+        const cardSizeStyle = {
+            width: isIntrMinWidth ? '' : 'calc(100% - 50px)',
+            height: isLargeHeightCards ? '' : 'calc(100% - 89px*2 - 50px)',
+        }
+
+        const fontStyle1 = {
+            fontSize: isIntrMinWidth ? '' : '32px',
+        }
+
+        const fontStyle2 = {
+            fontSize: isIntrMinWidth ? '' : '24px',
+        }
+
+        const fontStyle3 = {
+            fontSize: isIntrMinWidth ? '' : '16px',
+            marginTop: isLargeHeightCards ? '' : '25px',
+        }
+
+        const btnStyle = {
+            marginTop: isLargeHeightCards ? '' : '25px',
+        }
+
+        //40 28 16 16
+
         return (
             <div className={`Cards ${animationClass}`}>
-                <div id='intr'>
-                    <img src={trollonion} id='trollpa' alt='trollonion'></img>
-                    <div id='intro'>
-                        <p id='intro1'>Hello World!</p>
-                        <p id='intro2'>임베디드 SW 개발자 김형언입니다!</p>
-                        <p id='intro3'>건국대학교 컴퓨터공학부 재학 &#40;2022.03.~&#41;<br></br>ASPL INC. &#40;2022.01.~&#41;</p>
-                        <button id='toGithub' type='submit' onClick={() => {window.open('https://www.github.com/trollonion03', '_blank');}}>
+                <div id='intr' style={cardSizeStyle}>
+                    <img src={trollonion} id='trollpa' style={imgStyle} alt='trollonion'></img>
+                    <div id='intro' style={displayStyle}>
+                        <p id='intro1' style={fontStyle1}>Hello World!</p>
+                        <p id='intro2' style={fontStyle2}>임베디드 SW 개발자 김형언입니다!</p>
+                        <p id='intro3' style={fontStyle3}>건국대학교 컴퓨터공학부 재학 &#40;2022.03.~&#41;<br></br>ASPL INC. &#40;2022.01.~&#41;</p>
+                        <button id='toGithub' type='submit' onClick={() => {window.open('https://www.github.com/trollonion03', '_blank');}} style={btnStyle}>
                             <img src={github} alt='github'></img><p>github</p>
                         </button>
                     </div>
