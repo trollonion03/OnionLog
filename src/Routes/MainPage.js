@@ -19,7 +19,7 @@ import defaultImg from '../imgs/none.png';
 const MainPage = () => {
     const navigate = useNavigate();
     const isLargeScreen = useMediaQuery({maxWidth: 1200});
-    const isLargeHeight = useMediaQuery({minHeight: 1000});
+    const isLargeHeight = useMediaQuery({minHeight: 900});
     const notMobileHeader = useMediaQuery({minWidth: 430});
     const isMinCardWidth = useMediaQuery({maxWidth: 1000});
 
