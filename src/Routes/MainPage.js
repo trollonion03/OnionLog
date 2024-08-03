@@ -18,10 +18,14 @@ import defaultImg from '../imgs/none.png';
 
 const MainPage = () => {
     const navigate = useNavigate();
-    const isLargeScreen = useMediaQuery({maxDeviceWidth: 1200});
-    const isLargeHeight = useMediaQuery({minDeviceHeight: 1000});
-    const notMobileHeader = useMediaQuery({minDeviceWidth: 430});
-    const isMinCardWidth = useMediaQuery({maxDeviceWidth: 1000});
+    const isLargeScreen = useMediaQuery({maxWidth: 1200});
+    const isLargeHeight = useMediaQuery({minHeight: 1000});
+    const notMobileHeader = useMediaQuery({minWidth: 430});
+    const isMinCardWidth = useMediaQuery({maxWidth: 1000});
+
+    useEffect(() => {
+        console.log(`Current screen size: ${window.innerWidth}px`);
+    }, [isLargeScreen, isLargeHeight]);
 
     //mouse scroll effect
     const cardRef = useRef(null);
@@ -196,8 +200,8 @@ const MainPage = () => {
     //--- [Start] Cards ---
 
     const TitleCard = () => {
-        const isLargeWidthCards = useMediaQuery({minDeviceWidth: 400});
-        const isLargeHeightCards = useMediaQuery({minDeviceHeight: 750});
+        const isLargeWidthCards = useMediaQuery({minWidth: 400});
+        const isLargeHeightCards = useMediaQuery({minHeight: 750});
 
         const titleTextStyle = {
             fontSize: isLargeWidthCards ? '64px' : '56px',
@@ -228,9 +232,9 @@ const MainPage = () => {
     }
 
     const TitleCard2 = () => {
-        const isIntrMinWidth = useMediaQuery({minDeviceWidth: 954});
-        const isMinImgWidth = useMediaQuery({minDeviceWidth: 860})
-        const isLargeHeightCards = useMediaQuery({minDeviceHeight: 750});
+        const isIntrMinWidth = useMediaQuery({minWidth: 954});
+        const isMinImgWidth = useMediaQuery({minWidth: 860})
+        const isLargeHeightCards = useMediaQuery({minHeight: 750});
 
         const imgStyle = {
             display: isMinImgWidth ? '' : 'none',
