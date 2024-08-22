@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import './MainPage.css';
-import trollonion from '../imgs/trollonion.jpeg'
+import trollonion from '../imgs/trollonion.webp'
 import github from '../imgs/github.svg';
 import c from '../imgs/c.png';
 import cpp from '../imgs/cpp.png';
