@@ -22,7 +22,8 @@ const BlogPage = () => {
 
     const bodyStyle = {
         maxWidth: isLargeScreen ? '1180px' : '100%',
-        height: isLargeHeight? '770px' : 'calc(100vh - 102px)' 
+        height: isLargeHeight? '770px' : 'calc(100vh - 102px)',
+        display: 'block',
     }
 
     //--- [End] Components Styles ---
@@ -43,7 +44,10 @@ const BlogPage = () => {
                 </div>
             </header>
             <div className='MainBody' style={bodyStyle}>
-                <p id='msg'>블로그 준비중입니다.</p>
+                <div className='PageTitle'>
+                    <p id='BlogTitle'>OnionLog<span>_</span></p>
+                    <p id='CurTitle'>블로그</p>
+                </div>
             </div>
             <footer>
                 <div className='FooterBar' style={divStyle}>
