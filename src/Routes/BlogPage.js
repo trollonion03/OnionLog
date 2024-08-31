@@ -22,7 +22,7 @@ const BlogPage = () => {
 
     const bodyStyle = {
         maxWidth: isLargeScreen ? '1180px' : '100%',
-        height: isLargeHeight? '770px' : 'calc(100vh - 102px)',
+        minHeight: 'calc(100vh - 204px)',
         display: 'block',
     }
 
@@ -47,6 +47,21 @@ const BlogPage = () => {
                 <div className='PageTitle'>
                     <p id='BlogTitle'>OnionLog<span>_</span></p>
                     <p id='CurTitle'>블로그</p>
+                </div>
+                <div className='PageConents'>
+                    <p>시리즈</p>
+                    <div className='SeriesContainer'>
+
+                    </div>
+                    <p>글</p>
+                    <div className='PostContainer'>
+                        <div className='PostList'>
+
+                        </div>
+                        <div className='SearchManager'>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
             <footer>

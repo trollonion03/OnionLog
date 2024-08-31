@@ -13,7 +13,12 @@
     height: 135px;
     border-radius: 25px;
     background-color: #1A2029;
-    margin-top: 102px;
+}
+
+.PageConents {
+    width: calc(100% - 50px);
+    min-height: calc(100% - 50px - 135px);
+    padding: 25px 25px;
 }
 
 #BlogTitle {
