@@ -368,6 +368,8 @@ footer {
     font-size: 24px;
     line-height: 32px;
     color: #59B5F8;
+    margin-block-start: 2px;
+    margin-block-end: 0em;
 }
 
 .icon-container {
