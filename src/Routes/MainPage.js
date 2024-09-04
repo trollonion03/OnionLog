@@ -2,18 +2,18 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import './MainPage.css';
-import TROLLONION from '../imgs/trollonion.webp'
-import GITHUB from '../imgs/github.svg';
-import C from '../imgs/c.png';
-import CPP from '../imgs/cpp.png';
-import KOTLIN from '../imgs/kotlin.png';
-import JAVA from '../imgs/java.png';
-import PYTHON from '../imgs/python.png';
-import ANDROID from '../imgs/android.png';
-import DJANGO from '../imgs/django.png';
-import MFC from '../imgs/mfc.png';
-import QT from '../imgs/qt.png';
-import DEFAULT_IMG from '../imgs/none.png';
+import IMG_TROLLONION from '../imgs/trollonion.webp'
+import IMG_GITHUB from '../imgs/github.svg';
+import IMG_C from '../imgs/c.png';
+import IMG_CPP from '../imgs/cpp.png';
+import IMG_KOTLIN from '../imgs/kotlin.png';
+import IMG_JAVA from '../imgs/java.png';
+import IMG_PYTHON from '../imgs/python.png';
+import IMG_ANDROID from '../imgs/android.png';
+import IMG_DJANGO from '../imgs/django.png';
+import IMG_MFC from '../imgs/mfc.png';
+import IMG_QT from '../imgs/qt.png';
+import IMG_DEFAULT from '../imgs/none.png';
 
 
 const MainPage = () => {
@@ -271,13 +271,13 @@ const MainPage = () => {
         return (
             <div className={`Cards ${animationClass}`}>
                 <div id='intr' style={cardSizeStyle}>
-                    <img src={TROLLONION} id='trollpa' style={imgStyle} alt='trollonion'></img>
+                    <img src={IMG_TROLLONION} id='trollpa' style={imgStyle} alt='trollonion'></img>
                     <div id='intro' style={displayStyle}>
                         <p id='intro1' style={fontStyle1}>Hello World!</p>
                         <p id='intro2' style={fontStyle2}>임베디드 SW 개발자 김형언입니다!</p>
                         <p id='intro3' style={fontStyle3}>건국대학교 컴퓨터공학부 재학 &#40;2022.03.~&#41;<br></br>ASPL INC. &#40;2022.01.~&#41;</p>
                         <button id='toGithub' type='submit' onClick={() => {window.open('https://www.Github.com/trollonion03', '_blank');}} style={btnStyle}>
-                            <img src={GITHUB} alt='Github'></img><p>Github</p>
+                            <img src={IMG_GITHUB} alt='Github'></img><p>Github</p>
                         </button>
                     </div>
                 </div>
@@ -340,18 +340,18 @@ const MainPage = () => {
                         <div className='main-stacks'>
                             <p>Main Stacks</p>
                             <div className='icons'>
-                                <StackIconContainer src={CPP} description={'C++'} style={mainStackStyle}></StackIconContainer>
-                                <StackIconContainer src={C} description={'C'} style={mainStackStyle}></StackIconContainer>
-                                <StackIconContainer src={DEFAULT_IMG} description={'none'} style={mainStackDummy}></StackIconContainer>
+                                <StackIconContainer src={IMG_CPP} description={'C++'} style={mainStackStyle}></StackIconContainer>
+                                <StackIconContainer src={IMG_C} description={'C'} style={mainStackStyle}></StackIconContainer>
+                                <StackIconContainer src={IMG_DEFAULT} description={'none'} style={mainStackDummy}></StackIconContainer>
                             </div>
                         </div>
                         <div className='Splitter'></div>
                         <div className='sub-stacks'>
                             <p>Sub Stacks</p>
                             <div className='icons'>
-                                <StackIconContainer src={KOTLIN} description={'Kotlin'} style={subStackStyle}></StackIconContainer>
-                                <StackIconContainer src={JAVA} description={'Java'} style={subStackStyle}></StackIconContainer>
-                                <StackIconContainer src={PYTHON} description={'Python'} style={subStackStyle}></StackIconContainer>
+                                <StackIconContainer src={IMG_KOTLIN} description={'Kotlin'} style={subStackStyle}></StackIconContainer>
+                                <StackIconContainer src={IMG_JAVA} description={'Java'} style={subStackStyle}></StackIconContainer>
+                                <StackIconContainer src={IMG_PYTHON} description={'Python'} style={subStackStyle}></StackIconContainer>
                             </div>
                         </div>
                     </div>
@@ -372,18 +372,18 @@ const MainPage = () => {
                         <div className='main-stacks'>
                             <p>Main Stacks</p>
                             <div className='icons'>
-                                <StackIconContainer src={MFC} description={'MFC'} style={mainStackStyle}></StackIconContainer>
-                                <StackIconContainer src={QT} description={'QT'} style={mainStackStyle}></StackIconContainer>
-                                <StackIconContainer src={DEFAULT_IMG} description={'C2000'} style={mainStackStyle}></StackIconContainer>
+                                <StackIconContainer src={IMG_MFC} description={'MFC'} style={mainStackStyle}></StackIconContainer>
+                                <StackIconContainer src={IMG_QT} description={'QT'} style={mainStackStyle}></StackIconContainer>
+                                <StackIconContainer src={IMG_DEFAULT} description={'C2000'} style={mainStackStyle}></StackIconContainer>
                             </div>
                         </div>
                         <div className='Splitter'></div>
                         <div className='sub-stacks'>
                             <p>Sub Stacks</p>
                             <div className='icons'>
-                                <StackIconContainer src={DJANGO} description={'Django'} style={subStackStyleLong}></StackIconContainer>
-                                <StackIconContainer src={ANDROID} description={'Android'} style={subStackStyleLong2}></StackIconContainer>
-                                <StackIconContainer src={DEFAULT_IMG} description={'none'} style={subStackDummy}></StackIconContainer>
+                                <StackIconContainer src={IMG_DJANGO} description={'Django'} style={subStackStyleLong}></StackIconContainer>
+                                <StackIconContainer src={IMG_ANDROID} description={'Android'} style={subStackStyleLong2}></StackIconContainer>
+                                <StackIconContainer src={IMG_DEFAULT} description={'none'} style={subStackDummy}></StackIconContainer>
                             </div>
                         </div>
                     </div>
