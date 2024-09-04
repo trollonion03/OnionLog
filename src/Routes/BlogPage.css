@@ -1,3 +1,7 @@
+button:hover {
+    cursor: pointer;
+} 
+
 #msg {
     position: absolute;
     top: 50%;
@@ -19,6 +23,61 @@
     width: calc(100% - 50px);
     min-height: calc(100% - 50px - 135px);
     padding: 25px 25px;
+}
+
+.SubTitle {
+    font-family: 'galmuri11';
+    font-size: 40px;
+}
+
+.SeriesContainer {
+    height: 202px;
+    width: 100%;
+    margin: 15px 0 25px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 25px;
+    overflow-x: scroll;
+}
+
+.SeriesBtn {
+    position: relative;
+    flex-shrink: 0;
+    height: 100%;
+    width: 270px;
+    border: 0px none;
+    border-radius: 25px;
+    background-color: #1A2029;
+    font-family: 'galmuri11';
+}
+
+.SeriesBinder {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
+
+}
+
+.SeriesTag {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+}
+
+.SeriesTag>img {
+    float: left;
+    height: 64px;
+    width: 64px;
+    margin-bottom: 5px;
+}
+
+.SeriesTag>p {
+    font-size: 36px;
+    color: white;
 }
 
 #BlogTitle {

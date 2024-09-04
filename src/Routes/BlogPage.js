@@ -1,12 +1,17 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import './BlogPage.css'
+import './BlogPage.css';
+import IMG_STUDY from '../imgs/book.svg';
+import IMG_PROJECT from '../imgs/code.svg';
+import IMG_ETC from '../imgs/folder-open.svg';
 
 const BlogPage = () => {
     const navigate = useNavigate();
     const isLargeScreen = useMediaQuery({minDeviceWidth: 1180});
     const isLargeHeight = useMediaQuery({minDeviceHeight: 899});
+
+    const SERIES_COLOR = new Array('#F99090', '#8DCBF9', '#BBFF86');
 
     //Browser Detector
     const isFirefox = typeof InstallTrigger !== 'undefined';
@@ -24,9 +29,31 @@ const BlogPage = () => {
         maxWidth: isLargeScreen ? '1180px' : '100%',
         minHeight: 'calc(100vh - 204px)',
         display: 'block',
+        padding: '25px 0 0',
     }
 
     //--- [End] Components Styles ---
+
+    //--- [Start] Reuseable Components ---
+    const SeriesBtn = ({name, img, color}) => {
+
+        const binderStyle = {
+            backgroundColor: color,
+        }
+
+        console.log(`color: ${color}`);
+
+        return (
+            <button className='SeriesBtn' type='submit' onClick={() => {console.log(name)}}>
+                <div className='SeriesBinder' style={binderStyle}></div>
+                <div className='SeriesTag'>
+                    <img src={img} alt={`${name}`}></img>
+                    <p>{`${name}`}</p>
+                </div>
+            </button>
+        );
+    }
+    //--- [End] Reuseable Components ---
 
     const onClickLogin = () => {
         console.log('login');
@@ -49,17 +76,19 @@ const BlogPage = () => {
                     <p id='CurTitle'>블로그</p>
                 </div>
                 <div className='PageConents'>
-                    <p>시리즈</p>
+                    <p className='SubTitle'>시리즈</p>
                     <div className='SeriesContainer'>
-
+                        <SeriesBtn img={IMG_PROJECT} name={'Project'} color={SERIES_COLOR[0]}></SeriesBtn>
+                        <SeriesBtn img={IMG_STUDY} name={'STUDY'} color={SERIES_COLOR[1]}></SeriesBtn>
+                        <SeriesBtn img={IMG_ETC} name={'Etc.'} color={SERIES_COLOR[2]}></SeriesBtn>
                     </div>
-                    <p>글</p>
+                    <p className='SubTitle'>글</p>
                     <div className='PostContainer'>
                         <div className='PostList'>
 
                         </div>
                         <div className='SearchManager'>
-                            
+
                         </div>
                     </div>
                 </div>
