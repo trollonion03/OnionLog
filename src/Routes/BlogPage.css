@@ -80,6 +80,23 @@ button:hover {
     color: white;
 }
 
+.PostContainer {
+    display: flow-root;
+}
+
+.PostList {
+    min-height: 846px;
+    float: left;
+}
+
+.SearchManager {
+    min-height: 846px;
+    width: calc(100% - 740px - 25px - 50px);
+    padding: 0 25px;
+    float: right;
+
+}
+
 #BlogTitle {
     position: absolute;
     bottom: 25px;

@@ -8,10 +8,13 @@ import IMG_ETC from '../imgs/folder-open.svg';
 
 const BlogPage = () => {
     const navigate = useNavigate();
-    const isLargeScreen = useMediaQuery({minDeviceWidth: 1180});
-    const isLargeHeight = useMediaQuery({minDeviceHeight: 899});
+    const isLargeScreen = useMediaQuery({minWidth: 1180});
+    const isLargeHeight = useMediaQuery({minHeight: 899});
 
     const SERIES_COLOR = new Array('#F99090', '#8DCBF9', '#BBFF86');
+    const FLAG_PROJECT = 0;
+    const FLAG_STUDY = 1;
+    const FLAG_ETC = 2;
 
     //Browser Detector
     const isFirefox = typeof InstallTrigger !== 'undefined';
@@ -25,11 +28,22 @@ const BlogPage = () => {
         maxWidth: isLargeScreen ? '1180px' : '100%',
     };
 
+    //Override Mainpage Style
     const bodyStyle = {
         maxWidth: isLargeScreen ? '1180px' : '100%',
+        height: 'auto',
         minHeight: 'calc(100vh - 204px)',
         display: 'block',
         padding: '25px 0 0',
+    }
+    
+    const listStyle = {
+        width: isLargeScreen ? '740px' : '100%',
+        paddingRight: isLargeScreen ? '25px' : '0px',
+    }
+
+    const managerStyle = {
+        display : isLargeScreen ? 'block' : 'none',
     }
 
     //--- [End] Components Styles ---
@@ -78,16 +92,16 @@ const BlogPage = () => {
                 <div className='PageConents'>
                     <p className='SubTitle'>시리즈</p>
                     <div className='SeriesContainer'>
-                        <SeriesBtn img={IMG_PROJECT} name={'Project'} color={SERIES_COLOR[0]}></SeriesBtn>
-                        <SeriesBtn img={IMG_STUDY} name={'STUDY'} color={SERIES_COLOR[1]}></SeriesBtn>
-                        <SeriesBtn img={IMG_ETC} name={'Etc.'} color={SERIES_COLOR[2]}></SeriesBtn>
+                        <SeriesBtn img={IMG_PROJECT} name={'Project'} color={SERIES_COLOR[FLAG_PROJECT]}></SeriesBtn>
+                        <SeriesBtn img={IMG_STUDY} name={'STUDY'} color={SERIES_COLOR[FLAG_STUDY]}></SeriesBtn>
+                        <SeriesBtn img={IMG_ETC} name={'Etc.'} color={SERIES_COLOR[FLAG_ETC]}></SeriesBtn>
                     </div>
                     <p className='SubTitle'>글</p>
                     <div className='PostContainer'>
-                        <div className='PostList'>
+                        <div className='PostList' style={listStyle}>
 
                         </div>
-                        <div className='SearchManager'>
+                        <div className='SearchManager' style={managerStyle}>
 
                         </div>
                     </div>
