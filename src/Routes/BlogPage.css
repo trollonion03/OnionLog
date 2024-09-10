@@ -59,7 +59,6 @@ button:hover {
     height: 24px;
     width: 24px;
     border-radius: 12px;
-
 }
 
 .SeriesTag {
@@ -95,6 +94,65 @@ button:hover {
     padding: 0 25px;
     float: right;
 
+}
+
+.PostBtn {
+    position: relative;
+    width: 100%;
+    padding: 25px;
+    border: 0px none;
+    border-radius: 25px;
+    background-color: #1A2029;
+}
+
+.PostBtn>p {
+    font-family: 'galmuri11';
+    font-size: 32px;
+    color: white;
+    padding-right: 125px;
+    text-align: left;
+}
+
+.ListBinderContainer {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-family: 'galmuri11';
+    display: flex;
+}
+
+.ListBinderContainer>p {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.ListBinder {
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
+    float: right;
+}
+
+.ListDesc {
+    font-size: 18px !important;
+    color: #BBB !important;
+}
+
+.TimeStamp {
+    margin-top: 11px;
+    line-height: 32px;
+}
+
+.TimeStamp>img {
+    float: left;
+}
+
+.TimeStamp>p {
+    margin-left: 10px;
+    font-family: 'galmuri11';
+    font-size: 18px;
+    color: white;
+    float: left;
 }
 
 #BlogTitle {

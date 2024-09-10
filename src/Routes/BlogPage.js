@@ -5,6 +5,7 @@ import './BlogPage.css';
 import IMG_STUDY from '../imgs/book.svg';
 import IMG_PROJECT from '../imgs/code.svg';
 import IMG_ETC from '../imgs/folder-open.svg';
+import IMG_CLOCK from '../imgs/clock.svg';
 
 const BlogPage = () => {
     const navigate = useNavigate();
@@ -49,6 +50,7 @@ const BlogPage = () => {
     //--- [End] Components Styles ---
 
     //--- [Start] Reuseable Components ---
+    
     const SeriesBtn = ({name, img, color}) => {
 
         const binderStyle = {
@@ -67,6 +69,37 @@ const BlogPage = () => {
             </button>
         );
     }
+
+    // Posts
+    const PostTitles = ({binder}) => {
+        const binderStyle = {
+            backgroundColor: SERIES_COLOR[binder],
+        }
+
+        const binderStyleGlobal = {
+            color: SERIES_COLOR[binder],
+        }
+
+        return (
+            <button className='PostBtn'>
+                <p className='ListTitle'>글은 글이지</p>
+                <div className='ListBinderContainer' style={binderStyleGlobal}>
+                    <p>Project</p>
+                    <div className='ListBinder' style={binderStyle}></div>
+                </div>
+                <p className='ListDesc'>진짜 뭐라쓰지?</p>
+                <div className='TimeStamp'>
+                    <img src={IMG_CLOCK} alt=''></img>
+                    <p>2024.06.12.</p>
+                </div>
+            </button>
+        );
+    }
+
+    const thumbnailPostTitle = () => {
+
+    }
+
     //--- [End] Reuseable Components ---
 
     const onClickLogin = () => {
@@ -99,7 +132,7 @@ const BlogPage = () => {
                     <p className='SubTitle'>글</p>
                     <div className='PostContainer'>
                         <div className='PostList' style={listStyle}>
-
+                            <PostTitles binder={FLAG_PROJECT}></PostTitles>
                         </div>
                         <div className='SearchManager' style={managerStyle}>
 
