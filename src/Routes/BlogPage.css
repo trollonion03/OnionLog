@@ -81,6 +81,7 @@ button:hover {
 
 .PostContainer {
     display: flow-root;
+    margin-top: 15px;
 }
 
 .PostList {
