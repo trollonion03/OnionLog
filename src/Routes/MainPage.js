@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useRef, useCallback, useLayoutEffect } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import './MainPage.css';
@@ -41,6 +41,23 @@ const MainPage = () => {
 
     //Browser Detector
     const isFirefox = typeof InstallTrigger !== 'undefined';
+
+    //--- [Start] Preload Resource ---
+    const preload = useRef(null);
+
+    const preloadImages = () => {
+        let img1 = new Image();
+        img1.src = IMG_TROLLONION;
+        let img2 = new Image();
+        img2.src = IMG_GITHUB;
+    }
+
+    useLayoutEffect(() => {
+        preloadImages();
+        console.log('called');
+    }, []);
+
+    //--- [End] Preload Resource ---
 
     //--- [Start] Components Styles ---
     const navStyle = {
@@ -497,7 +514,7 @@ const MainPage = () => {
                     <button type='submit' onClick={onClickLogin}>로그인</button>
                 </div>
             </header>
-            <div className='MainBody' style={bodyStyle}>
+            <div className='MainBody' style={bodyStyle} ref={preload}>
                 <div className='Card' style={cardStyle} ref={cardRef}>
                     <button className='PageBtn' id='up' type='submit' style={btnUpStyle} onClick={() => {setSwitchState(switchState-1); setAnimationClass('card-slide-top');}}>↑</button>
                     {switchState === 1 && <TitleCard></TitleCard>}
