@@ -86,10 +86,12 @@ button:hover {
 
 .PostList {
     min-height: 846px;
+    max-height: calc((160px + 25px) * 10);
     float: left;
     display: flex;
     gap: 25px;
     flex-direction: column;
+    overflow-y: scroll;
 }
 
 .SearchManager {
@@ -168,6 +170,7 @@ button:hover {
     padding: 0;
     border: 0 none;
     border-radius: 25px;
+    margin-bottom: calc(160px - 40px);
 }
 
 .PostBtnPos {

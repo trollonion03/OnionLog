@@ -158,8 +158,9 @@ const BlogPage = () => {
                     <p className='SubTitle'>글</p>
                     <div className='PostContainer'>
                         <div className='PostList' style={listStyle}>
-                            <PostTitles title={'글은 글이지'} desc={'진짜 뭐라쓰지?'} link={`${1}`} date={`${2024}.${'06'}.${12}.`} binder={FLAG_PROJECT}></PostTitles>
-                            <ImgPostTitle img={IMG_DOG} title={'썸네일이 들어간 게시물'} desc={'강아지 귀여워'} link={`${2}`} date={`${2024}.${'06'}.${12}.`} binder={FLAG_STUDY}></ImgPostTitle>
+                            <PostTitles title={'글은 글이지'} desc={'진짜 뭐라쓰지?'} link={`${1}`} date={`${2024}.${'06'}.${12}.`} binder={FLAG_ETC}></PostTitles>
+                            <ImgPostTitle img={IMG_DOG} title={'썸네일이 들어간 게시물'} desc={'강아지 귀여워'} link={`${2}`} date={`${2024}.${'06'}.${12}.`} binder={FLAG_PROJECT}></ImgPostTitle>
+                            <PostTitles title={'설명도 안들어간 게시물'} desc={''} link={`${1}`} date={`${2024}.${'06'}.${12}.`} binder={FLAG_STUDY}></PostTitles>
                         </div>
                         <div className='SearchManager' style={managerStyle}>
 
