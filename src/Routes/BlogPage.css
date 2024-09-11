@@ -87,6 +87,9 @@ button:hover {
 .PostList {
     min-height: 846px;
     float: left;
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
 }
 
 .SearchManager {
@@ -134,6 +137,10 @@ button:hover {
     float: right;
 }
 
+.PostImg {
+    width: 100%;
+}
+
 .ListDesc {
     font-size: 18px !important;
     color: #BBB !important;
@@ -154,6 +161,19 @@ button:hover {
     font-size: 18px;
     color: white;
     float: left;
+}
+
+.PostImgBtn {
+    position: relative;
+    padding: 0;
+    border: 0 none;
+    border-radius: 25px;
+}
+
+.PostBtnPos {
+    position: absolute;
+    bottom: calc(40px - 160px);
+    width: calc(100% - 50px);
 }
 
 #BlogTitle {

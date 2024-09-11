@@ -6,6 +6,7 @@ import IMG_STUDY from '../imgs/book.svg';
 import IMG_PROJECT from '../imgs/code.svg';
 import IMG_ETC from '../imgs/folder-open.svg';
 import IMG_CLOCK from '../imgs/clock.svg';
+import IMG_DOG from '../imgs/dog.png';
 
 const BlogPage = () => {
     const navigate = useNavigate();
@@ -97,13 +98,31 @@ const BlogPage = () => {
         );
     }
 
-    const thumbnailPostTitle = ({img, title, desc, link, date, binder}) => {
+    const ImgPostTitle = ({img, title, desc, link, date, binder}) => {
+        const binderStyle = {
+            backgroundColor: SERIES_COLOR[binder],
+        }
+
+        const binderStyleGlobal = {
+            color: SERIES_COLOR[binder],
+        }
 
         return (
-            <div>
-                <img></img>
-                <PostTitles title={title} desc={desc} link={link} date={`${2024}.${'06'}.${12}.`} binder={FLAG_STUDY}></PostTitles>
-            </div>
+            <button className='PostImgBtn' type='submit' onClick={() => {navigate(`post/${link}`)}}>
+                <img className='PostImg' src={img} alt={title}></img>
+                <div className='PostBtn PostBtnPos'>
+                    <p className='ListTitle'>{title}</p>
+                    <div className='ListBinderContainer' style={binderStyleGlobal}>
+                        <p>{SERIES_TAG[binder]}</p>
+                        <div className='ListBinder' style={binderStyle}></div>
+                    </div>
+                    <p className='ListDesc'>{desc}</p>
+                    <div className='TimeStamp'>
+                        <img src={IMG_CLOCK} alt=''></img>
+                        <p>{date}</p>
+                    </div>
+                </div>
+        </button>
         );
     }
 
@@ -140,6 +159,7 @@ const BlogPage = () => {
                     <div className='PostContainer'>
                         <div className='PostList' style={listStyle}>
                             <PostTitles title={'글은 글이지'} desc={'진짜 뭐라쓰지?'} link={`${1}`} date={`${2024}.${'06'}.${12}.`} binder={FLAG_PROJECT}></PostTitles>
+                            <ImgPostTitle img={IMG_DOG} title={'썸네일이 들어간 게시물'} desc={'강아지 귀여워'} link={`${2}`} date={`${2024}.${'06'}.${12}.`} binder={FLAG_STUDY}></ImgPostTitle>
                         </div>
                         <div className='SearchManager' style={managerStyle}>
 
