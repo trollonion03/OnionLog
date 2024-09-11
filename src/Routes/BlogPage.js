@@ -13,6 +13,7 @@ const BlogPage = () => {
     const isLargeHeight = useMediaQuery({minHeight: 899});
 
     const SERIES_COLOR = new Array('#F99090', '#8DCBF9', '#BBFF86');
+    const SERIES_TAG = new Array('Project', 'Study', 'Etc.');
     const FLAG_PROJECT = 0;
     const FLAG_STUDY = 1;
     const FLAG_ETC = 2;
@@ -71,7 +72,7 @@ const BlogPage = () => {
     }
 
     // Posts
-    const PostTitles = ({binder}) => {
+    const PostTitles = ({title, desc, link, date, binder}) => {
         const binderStyle = {
             backgroundColor: SERIES_COLOR[binder],
         }
@@ -81,23 +82,29 @@ const BlogPage = () => {
         }
 
         return (
-            <button className='PostBtn'>
-                <p className='ListTitle'>글은 글이지</p>
+            <button className='PostBtn' type='submit' onClick={() => {navigate(`post/${link}`)}}>
+                <p className='ListTitle'>{title}</p>
                 <div className='ListBinderContainer' style={binderStyleGlobal}>
-                    <p>Project</p>
+                    <p>{SERIES_TAG[binder]}</p>
                     <div className='ListBinder' style={binderStyle}></div>
                 </div>
-                <p className='ListDesc'>진짜 뭐라쓰지?</p>
+                <p className='ListDesc'>{desc}</p>
                 <div className='TimeStamp'>
                     <img src={IMG_CLOCK} alt=''></img>
-                    <p>2024.06.12.</p>
+                    <p>{date}</p>
                 </div>
             </button>
         );
     }
 
-    const thumbnailPostTitle = () => {
+    const thumbnailPostTitle = ({img, title, desc, link, date, binder}) => {
 
+        return (
+            <div>
+                <img></img>
+                <PostTitles title={title} desc={desc} link={link} date={`${2024}.${'06'}.${12}.`} binder={FLAG_STUDY}></PostTitles>
+            </div>
+        );
     }
 
     //--- [End] Reuseable Components ---
@@ -132,7 +139,7 @@ const BlogPage = () => {
                     <p className='SubTitle'>글</p>
                     <div className='PostContainer'>
                         <div className='PostList' style={listStyle}>
-                            <PostTitles binder={FLAG_PROJECT}></PostTitles>
+                            <PostTitles title={'글은 글이지'} desc={'진짜 뭐라쓰지?'} link={`${1}`} date={`${2024}.${'06'}.${12}.`} binder={FLAG_PROJECT}></PostTitles>
                         </div>
                         <div className='SearchManager' style={managerStyle}>
 
