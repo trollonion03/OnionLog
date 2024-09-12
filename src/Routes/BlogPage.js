@@ -7,6 +7,10 @@ import IMG_PROJECT from '../imgs/code.svg';
 import IMG_ETC from '../imgs/folder-open.svg';
 import IMG_CLOCK from '../imgs/clock.svg';
 import IMG_DOG from '../imgs/dog.png';
+import IMG_SEARCH from '../imgs/search.svg';
+import IMG_TAG from '../imgs/tag.svg';
+import IMG_ARCHIVE from '../imgs/archive.svg';
+
 
 const BlogPage = () => {
     const navigate = useNavigate();
@@ -47,6 +51,13 @@ const BlogPage = () => {
 
     const managerStyle = {
         display : isLargeScreen ? 'block' : 'none',
+    }
+
+    const linkStyle = {
+        textDecoration: 'none',
+        color: '#707070',
+        fontFamily: 'galmuri11',
+        fontSize: '20px'
     }
 
     //--- [End] Components Styles ---
@@ -163,7 +174,41 @@ const BlogPage = () => {
                             <PostTitles title={'설명도 안들어간 게시물'} desc={''} link={`${1}`} date={`${2024}.${'06'}.${12}.`} binder={FLAG_STUDY}></PostTitles>
                         </div>
                         <div className='SearchManager' style={managerStyle}>
-
+                            <div className='SearchBox'>
+                                <input type='text' id='PostSearch' placeholder={'Search...'}></input>
+                                <img src={IMG_SEARCH} alt='search'></img>
+                            </div>
+                            <div className='ManagerList'>
+                                <div className='TagTitle'>
+                                    <img src={IMG_TAG} alt='tag'></img>
+                                    <p>Tag</p>
+                                </div>
+                                <div id='TagContainer'>
+                                    <Link style={linkStyle} reloadDocument to='/blog/'>강아지</Link>
+                                    <Link style={linkStyle} reloadDocument to='/blog/'>프로젝트</Link>
+                                    <Link style={linkStyle} reloadDocument to='/blog/'>아무말</Link>
+                                </div>
+                            </div>
+                            <div className='ManagerList ArchiveList'>
+                                <div className='TagTitle'>
+                                    <img src={IMG_ARCHIVE} alt='tag'></img>
+                                    <p>Archives</p>
+                                </div>
+                                <div id='ArchiveContainer'>
+                                    <button type='submit' className='ArchiveBtn'>
+                                        <p className='Years'>2024</p>
+                                        <p className='Go'>→</p>
+                                    </button>
+                                    <button type='submit' className='ArchiveBtn'>
+                                        <p className='Years'>2023</p>
+                                        <p className='Go'>→</p>
+                                    </button>
+                                    <button type='submit' className='ArchiveBtn'>
+                                        <p className='Years'>2022</p>
+                                        <p className='Go'>→</p>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
