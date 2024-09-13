@@ -137,6 +137,15 @@ const BlogPage = () => {
         );
     }
 
+    const ArchiveBtns = ({years}) => {
+        return (
+            <button type='submit' className='ArchiveBtn'>
+                <p className={`Years`} id={`a${years}`}>{years}</p>
+                <p className='Go'>→</p>
+            </button>
+        );
+    }
+
     //--- [End] Reuseable Components ---
 
     const onClickLogin = () => {
@@ -195,18 +204,9 @@ const BlogPage = () => {
                                     <p>Archives</p>
                                 </div>
                                 <div id='ArchiveContainer'>
-                                    <button type='submit' className='ArchiveBtn'>
-                                        <p className='Years'>2024</p>
-                                        <p className='Go'>→</p>
-                                    </button>
-                                    <button type='submit' className='ArchiveBtn'>
-                                        <p className='Years'>2023</p>
-                                        <p className='Go'>→</p>
-                                    </button>
-                                    <button type='submit' className='ArchiveBtn'>
-                                        <p className='Years'>2022</p>
-                                        <p className='Go'>→</p>
-                                    </button>
+                                    <ArchiveBtns years={2024}></ArchiveBtns>
+                                    <ArchiveBtns years={2023}></ArchiveBtns>
+                                    <ArchiveBtns years={2022}></ArchiveBtns>
                                 </div>
                             </div>
                         </div>

@@ -234,8 +234,9 @@ button:hover {
     width: 100%;
     border: 0px none;
     border-radius: 15px;
+    padding: 0;
     background-color: #1A2029;
-    line-height: 50px;
+    line-height: 48px;
     font-family: 'galmuri11';
     font-size: 22px;
     color: white;
@@ -318,4 +319,25 @@ button:hover {
     display: flex;
     flex-direction: column;
     gap: 7px;
+}
+
+#a2024 {
+    background: linear-gradient(110deg, #FFD467 0%, #88E4EA 25%, #E869B5 50%, #CC86E4 75%, #6989E5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#a2023 {
+    background: linear-gradient(-67deg, #F4FF75 0%, #BCE93C 50%, #8CE974 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#a2022 {
+    background: linear-gradient(-67deg, #B275FF 17%, #3CCAE9 50%, #74BFE9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
