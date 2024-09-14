@@ -1,6 +1,12 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import { Editor } from '@toast-ui/react-editor';
+import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
+import '@toast-ui/editor/dist/i18n/ko-kr';
+import 'tui-color-picker/dist/tui-color-picker.css';
+import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css';
+import '@toast-ui/editor/dist/toastui-editor.css';
 import './EditorPage.css';
 
 const EditorPage = () => {
@@ -11,6 +17,14 @@ const EditorPage = () => {
     //Browser Detector
     const isFirefox = typeof InstallTrigger !== 'undefined';
 
+    //Editor State
+    const editorRef = useRef();
+
+    const onChange = () => {
+        const data = editorRef.current.getInstance().getHTML();
+        console.log(data);
+    };
+    
     //--- [Start] Components Styles ---
     const navStyle = {
         maxWidth: isLargeScreen ? 'calc(1180px - 20px)' : '100%',
@@ -73,7 +87,35 @@ const EditorPage = () => {
                     <p id='CurTitle'>글쓰기</p>
                 </div>
                 <div className='PageConents'>
-                    
+                    <p className='ETitle'>제목</p>
+                    <input type='text'></input>
+                    <p id='TitleLength'>{`${{}}`}/64</p>
+                    <div className='EditorTools'>
+                        <p className='ETitle'>본문</p>
+                        <button type='submit'>
+                            <p>임시저장</p>
+                        </button>
+                        <button type='submit'>
+                            <p>Upload!</p>
+                        </button>
+                    </div>
+                    <Editor
+                        initialValue="내용을 입력하세요"
+                        previewStyle="vertical"
+                        height="650px"
+                        initialEditType="wysiwyg"
+                        useCommandShortcut={false}
+                        plugins={[colorSyntax]}
+                        ref={editorRef}
+                        onChange={onChange}
+                        language='ko-KR'
+                    />
+                    <p className='ETitle'>썸네일</p>
+                    <div></div>
+                    <p className='ETitle'>시리즈</p>
+                    <div></div>
+                    <p className='ETitle'>태그</p>
+                    <div></div>
                 </div>
             </div>
             <footer>
