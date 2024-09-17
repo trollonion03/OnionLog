@@ -1,0 +1,73 @@
+.ETitle {
+    margin-top: 25px;
+    font-family: 'galmuri11';
+    font-size: 40px;
+}
+
+.EditorTools {
+    margin: 25px 0px 25px;
+    display: flow-root;
+}
+
+.ToolsBtn {
+    position: relative;
+    height:50px;
+    width: 305px;
+    border: 0px none;
+    border-radius: 15px;
+    background-color: #1A2029;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: 'galmuri11';
+    color: white;
+    font-size: 22px;
+    text-align: left;
+}
+
+.ToolsBtn>p {
+    float: left;
+    background: linear-gradient(110deg, #FFD467 0%, #88E4EA 25%, #E869B5 50%, #CC86E4 75%, #6989E5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ToolsBtn>img {
+    position: absolute;
+    right: 15px;
+    top: calc((50px - 22px)/2);
+}
+
+.ToolsBtns {
+    float: right;
+}
+
+.BoneMoon {
+    margin-top: 0px !important;
+    float: left;
+}
+
+#TitleInput {
+    height: 59px;
+    width: 100%;
+    border: 0px none;
+    border-bottom: 5px solid black;
+    font-family: 'galmuri11';
+    color: #707070;
+    font-size: 36px;
+}
+
+#TitleInput:focus {
+    outline: none;
+}
+
+#TitleInput::placeholder {
+    color: 808080;
+}
+
+#TitleLength {
+    margin-top: 5px;
+    font-family: 'galmuri11';
+    font-size: 20px;
+    color: #707070;
+}

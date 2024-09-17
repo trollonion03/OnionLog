@@ -8,6 +8,8 @@ import 'tui-color-picker/dist/tui-color-picker.css';
 import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import './EditorPage.css';
+import IMG_SAVE from '../imgs/save.svg';
+import IMG_UPLOAD from '../imgs/upload.svg'
 
 const EditorPage = () => {
     const navigate = useNavigate();
@@ -88,16 +90,20 @@ const EditorPage = () => {
                 </div>
                 <div className='PageConents'>
                     <p className='ETitle'>제목</p>
-                    <input type='text'></input>
-                    <p id='TitleLength'>{`${{}}`}/64</p>
+                    <input id='TitleInput' placeholder='제목을 입력하세요' type='text'></input>
+                    <p id='TitleLength'>{`${0}`}/64</p>
                     <div className='EditorTools'>
-                        <p className='ETitle'>본문</p>
-                        <button type='submit'>
-                            <p>임시저장</p>
-                        </button>
-                        <button type='submit'>
-                            <p>Upload!</p>
-                        </button>
+                        <p className='ETitle BoneMoon'>본문</p>
+                        <div className='ToolsBtns'>
+                            <button className='ToolsBtn' style={{marginRight: '25px'}} type='submit'>
+                                <p>임시저장</p>
+                                <img src={IMG_SAVE} alt='save'></img>
+                            </button>
+                            <button className='ToolsBtn' type='submit'>
+                                <p>Upload!</p>
+                                <img src={IMG_UPLOAD} alt='upload'></img>
+                            </button>
+                        </div>
                     </div>
                     <Editor
                         initialValue="내용을 입력하세요"
