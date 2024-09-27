@@ -9,7 +9,9 @@ import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-sy
 import '@toast-ui/editor/dist/toastui-editor.css';
 import './EditorPage.css';
 import IMG_SAVE from '../imgs/save.svg';
-import IMG_UPLOAD from '../imgs/upload.svg'
+import IMG_UPLOAD from '../imgs/upload.svg';
+import IMG_UPLOAD_BLACK from '../imgs/uploadblack.svg';
+import IMG_ADD from '../imgs/add.svg';
 
 const EditorPage = () => {
     const navigate = useNavigate();
@@ -117,10 +119,24 @@ const EditorPage = () => {
                         language='ko-KR'
                     />
                     <p className='ETitle'>썸네일</p>
+                    <div>
+                        <button className='FileUploadBtn'>
+                            <p>업로드</p>
+                            <img src={IMG_UPLOAD_BLACK}></img>
+                        </button>
+                    </div>
                     <div></div>
                     <p className='ETitle'>시리즈</p>
                     <div></div>
+                    <div></div>
                     <p className='ETitle'>태그</p>
+                    <div className='TagForm'>
+                        <input type='text' placeholder='추가'></input>
+                        <button className='AddTag'>
+                            <img src={IMG_ADD}></img>
+                        </button>
+                        <div className='outline'></div>
+                    </div>
                     <div></div>
                 </div>
             </div>

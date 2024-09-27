@@ -47,6 +47,76 @@
     float: left;
 }
 
+.FileUploadBtn {
+    position: relative;
+    height: 45px;
+    width: 305px;
+    padding: 0px 5px;
+    border: 0px none;
+    background-color: white;
+}
+
+.FileUploadBtn::after {
+    content: '';
+    position: absolute;
+    bottom: -2.5px;
+    left: 0;
+    width: 100%;
+    border-bottom: 5px solid black;
+}
+
+.FileUploadBtn>p {
+    float: left;
+    font-family: 'galmuri11';
+    font-size: 20px;
+    color: #707070;
+}
+
+.FileUploadBtn>img {
+    float: right;
+}
+
+.TagForm {
+    position: relative;
+    height: 45px;
+    width: 295px;
+    padding: 0px 5px;
+}
+
+.outline {
+    position: absolute;
+    bottom: -2.5px;
+    left: 0;
+    width: 100%;
+    border-bottom: 5px solid black;
+}
+
+.TagForm>input {
+    padding-left: 0px;
+    border: 0px none;
+    float: left;
+    width: calc(100% - 29px);
+    height: 100%;
+    font-family: 'galmuri11';
+    font-size: 20px;
+}
+
+.TagForm>input:focus {
+    outline: none;
+}
+
+.TagForm>input::placeholder {
+    color: #707070;
+}
+
+.AddTag {
+    height: 100%;
+    padding: 0;
+    border: 0px none;
+    float: right;
+    background-color: white;
+}
+
 #TitleInput {
     height: 59px;
     width: 100%;
