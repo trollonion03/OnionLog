@@ -12,6 +12,7 @@ import IMG_SAVE from '../imgs/save.svg';
 import IMG_UPLOAD from '../imgs/upload.svg';
 import IMG_UPLOAD_BLACK from '../imgs/uploadblack.svg';
 import IMG_ADD from '../imgs/add.svg';
+import IMG_DROPDOWN from '../imgs/dropdown.svg';
 
 const EditorPage = () => {
     const navigate = useNavigate();
@@ -23,6 +24,12 @@ const EditorPage = () => {
 
     //Editor State
     const editorRef = useRef();
+
+    //Thumnali file upload
+    const thumnaliRef = useRef();
+
+    //Series Select
+    let curSeries = '';
 
     const onChange = () => {
         const data = editorRef.current.getInstance().getHTML();
@@ -65,7 +72,45 @@ const EditorPage = () => {
 
     //--- [End] Components Styles ---
 
+    //--- [Start] Thumnail Upload hanlder ---
+
+    const callUpload = () => {
+        thumnaliRef.current.click();
+    }
+
+    const uploadThumnailFile = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            console.log('Selected file:', file);
+        }
+    }
+    //--- [End] Thumnail Upload handler ---
+
     //--- [Start] Reuseable Components ---
+
+    const DropDownSelect = ({value}) => {
+
+        const [selVal, setSelVal] = useState('');
+
+        const handleSelect = (event) => {
+            value = event.target.value;
+            setSelVal(value)
+            console.log(value);
+        }
+
+        return (
+            <div className='DropDownWrapper'>
+                <select className='DropDownSelect' value={selVal} onChange={handleSelect}>
+                    <option value="none">선택</option>
+                    <option value='project'>Project</option>
+                    <option value='study'>Study</option>
+                    <option value='etc'>Etc.</option>
+                </select>
+                <img className='DropDownIcon' src={IMG_DROPDOWN} alt='dropdown'></img>
+                <div className='outline'></div>
+            </div>
+        )
+    }
     
 
     //--- [End] Reuseable Components ---
@@ -120,15 +165,21 @@ const EditorPage = () => {
                     />
                     <p className='ETitle'>썸네일</p>
                     <div>
-                        <button className='FileUploadBtn'>
+                        <button type='file' className='FileUploadBtn' onClick={callUpload}>
                             <p>업로드</p>
                             <img src={IMG_UPLOAD_BLACK}></img>
                         </button>
+
+                        <input
+                            type="file"
+                            ref={thumnaliRef}
+                            style={{ display: 'none' }}
+                            onChange={uploadThumnailFile}
+                        />
                     </div>
                     <div></div>
-                    <p className='ETitle'>시리즈</p>
-                    <div></div>
-                    <div></div>
+                    <p className='ETitle' style={{marginInlineStart: '0.5px',}}>시리즈</p>
+                    <DropDownSelect value={curSeries}></DropDownSelect>
                     <p className='ETitle'>태그</p>
                     <div className='TagForm'>
                         <input type='text' placeholder='추가'></input>

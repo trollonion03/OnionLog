@@ -109,6 +109,48 @@
     color: #707070;
 }
 
+.DropDownWrapper {
+    position: relative;
+    width: fit-content;
+}
+
+.DropDownSelect {
+    height: 45px;
+    width: 305px;
+    padding-left: 5px;
+    border: 0px none;
+    background-color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: 'galmuri11';
+    font-size: 20px;
+    color: #707070;
+}
+
+.DropDownSelect:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.DropDownSelect:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.DropDownSelect:hover {
+    cursor: pointer;
+}
+
+.DropDownIcon {
+    position: absolute;
+    right: 5px;
+    top: calc((45px - 24px) / 2);
+    pointer-events: none;
+}
+
 .AddTag {
     height: 100%;
     padding: 0;
