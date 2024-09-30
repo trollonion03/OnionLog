@@ -1,0 +1,18 @@
+.TitleWrapper {
+    display: flow-root;
+}
+
+.SeriesWrapper {
+    width: 100%;
+    display: flow-root;
+    font-family: 'galmuri11';
+}
+
+.PpTitle {
+    font-family: 'galmuri11';
+    font-size: 64px;
+}
+
+.PostWrapper {
+    float: left;
+}

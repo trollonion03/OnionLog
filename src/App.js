@@ -4,6 +4,7 @@ import './App.css';
 import MainPage from './Routes/MainPage';
 import BlogPage from './Routes/BlogPage';
 import EditorPage from './Routes/EditorPage';
+import PostPage from './Routes/PostPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<MainPage />}></Route>
         <Route path="/blog" element={<BlogPage />}></Route>
         <Route path="/blog/editor" element={<EditorPage />}></Route>
+        <Route path="/blog/post" element={<PostPage/>}></Route>
       </Routes>
     </Router>
   );
