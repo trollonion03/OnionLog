@@ -161,7 +161,7 @@
 
 #TitleInput {
     height: 59px;
-    width: 100%;
+    width: calc(100% - 4px);
     border: 0px none;
     border-bottom: 5px solid black;
     font-family: 'galmuri11';
