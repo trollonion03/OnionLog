@@ -1,5 +1,8 @@
 .TitleWrapper {
+    position: relative;
     display: flow-root;
+    font-family: 'galmuri11';
+    margin-bottom: 51px;
 }
 
 .SeriesWrapper {
@@ -15,4 +18,26 @@
 
 .PostWrapper {
     float: left;
+}
+
+.InfoWrapper {
+    position: absolute;
+    bottom: calc(6px - 32px);
+    display: flow-root;
+    line-height: 32px;
+}
+
+.ForMaintenance {
+    font-size: 18px;
+    margin-left: 25px;
+}
+
+.DeleteBtn {
+    height: 32px;
+    float: left;
+    margin-left: 15px;
+    border: 0px none;
+    padding: 0px;
+    background-color: white;
+    line-height: 32px;
 }

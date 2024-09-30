@@ -1,12 +1,17 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import { Viewer } from '@toast-ui/react-editor';
+import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import './PostPage.css';
 import IMG_STUDY_BLACK from '../imgs/study_black.svg';
 import IMG_PROJECT_BLACK from '../imgs/project_black.svg';
 import IMG_ETC_BLACK from '../imgs/etc_black.svg';
 import IMG_SEARCH from '../imgs/search.svg';
 import IMG_TAG from '../imgs/tag.svg';
+import IMG_CLOCK_BLACK from '../imgs/clock_black.svg';
+import IMG_DOG from '../imgs/dog.png';
+
 
 
 const PostPage = () => {
@@ -22,6 +27,9 @@ const PostPage = () => {
 
     //Browser Detector
     const isFirefox = typeof InstallTrigger !== 'undefined';
+
+    //Viewer Test
+    const testPost = `<p>여러분 우리 귀여운 강아지좀 보고가세요~</p><div data-language="c++" class="toastui-editor-ww-code-block"><pre><code data-language="c++">dog dog1 = new dog();</code></pre></div>`;
 
     //--- [Start] Components Styles ---
     const navStyle = {
@@ -41,9 +49,9 @@ const PostPage = () => {
         padding: '25px 0 0',
     }
     
-    const listStyle = {
+    const postStyle = {
         width: isLargeScreen ? '740px' : '100%',
-        paddingRight: isLargeScreen ? '25px' : '0px',
+        // paddingRight: isLargeScreen ? '25px' : '0px',
     }
 
     const managerStyle = {
@@ -91,12 +99,23 @@ const PostPage = () => {
                         </div>
                         <p className='PpTitle'>썸네일이 들어간 게시물</p>
                         <div className='InfoWrapper'>
-
+                            <img src={IMG_CLOCK_BLACK} style={{float: 'left'}} alt='info'></img>
+                            <p style={{float: 'left', marginLeft: '10px'}}>{`${2024}.${'06'}.${12}.`}</p>
+                            <div className='ForMaintenance' style={{float: 'left'}}>
+                                <Link style={{float: 'left', color: '#707070', fontSize: '18px'}}to='/blog/editor'>수정</Link>
+                                <button className='DeleteBtn' onClick={() => {console.log('delete')}}><Link style={{color: '#707070', fontFamily: 'galmuri11', fontSize: '18px'}}>삭제</Link></button>
+                            </div>
                         </div>
                     </div>
                     <div className='PostContainer' style={{marginTop: '0px'}}>
-                        <div className='PostWrapper'>
-
+                        <div className='PostWrapper' style={postStyle}>
+                            <img src={IMG_DOG} alt='thumnail' style={{width: '100%'}}></img>
+                            <Viewer
+                                initialValue={testPost}
+                                width='100%'
+                            />
+                            <p className='ETitle'>태그</p>
+                            <p className='ETitle'>댓글</p>
                         </div>
                         <div className='SearchManager' style={managerStyle}>
                             <div className='SearchBox'>
@@ -110,8 +129,6 @@ const PostPage = () => {
                                 </div>
                                 <div id='TagContainer'>
                                     <Link style={linkStyle} reloadDocument to='/blog/'>강아지</Link>
-                                    <Link style={linkStyle} reloadDocument to='/blog/'>프로젝트</Link>
-                                    <Link style={linkStyle} reloadDocument to='/blog/'>아무말</Link>
                                 </div>
                             </div>
                         </div>
