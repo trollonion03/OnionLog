@@ -41,3 +41,22 @@
     background-color: white;
     line-height: 32px;
 }
+
+.TagWrapper {
+    height: fit-content;
+    float: left;
+    display: flow-root;
+    line-height: 32px;
+}
+
+.TagWrapper>img {
+    float:left;
+}
+
+.TagContainerOnPost {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    column-gap: 10px;
+}

@@ -11,6 +11,7 @@ import IMG_SEARCH from '../imgs/search.svg';
 import IMG_TAG from '../imgs/tag.svg';
 import IMG_CLOCK_BLACK from '../imgs/clock_black.svg';
 import IMG_DOG from '../imgs/dog.png';
+import IMG_TAG_GRAY from '../imgs/tag_gray.svg';
 
 
 
@@ -58,16 +59,28 @@ const PostPage = () => {
         display : isLargeScreen ? 'block' : 'none',
     }
 
-    const linkStyle = {
-        textDecoration: 'none',
-        color: '#707070',
-        fontFamily: 'galmuri11',
-        fontSize: '20px'
-    }
-
     //--- [End] Components Styles ---
 
     //--- [Start] Reuseable Components ---
+
+    const PostTag = ({type, tagName}) => {
+        
+        const linkStyle = {
+            textDecoration: 'none',
+            color: '#707070',
+            fontFamily: 'galmuri11',
+            fontSize: '20px',
+            float: 'left',
+            marginLeft: type ? '5px' : '0px',
+        }
+
+        return (
+            <div className='TagWrapper' style={{lineHeight: type ? '32px' : '26px'}}>
+                <img style={{display: type ? 'block' : 'none'}} src={IMG_TAG_GRAY} alt='tags'></img>
+                <Link style={linkStyle} reloadDocument to='/blog/'>{tagName}</Link>
+            </div>
+        );
+    }
     
     //--- [End] Reuseable Components ---
 
@@ -115,6 +128,9 @@ const PostPage = () => {
                                 width='100%'
                             />
                             <p className='ETitle'>태그</p>
+                            <div className='TagContainerOnPost'>
+                                <PostTag type={true} tagName={'강아지'}></PostTag>
+                            </div>
                             <p className='ETitle'>댓글</p>
                         </div>
                         <div className='SearchManager' style={managerStyle}>
@@ -128,7 +144,7 @@ const PostPage = () => {
                                     <p>Tag</p>
                                 </div>
                                 <div id='TagContainer'>
-                                    <Link style={linkStyle} reloadDocument to='/blog/'>강아지</Link>
+                                    <PostTag type={false} tagName={'강아지'}></PostTag>
                                 </div>
                             </div>
                         </div>
