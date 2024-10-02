@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useRef, useCallback, useInsertionEffect } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { Viewer } from '@toast-ui/react-editor';
@@ -12,6 +12,7 @@ import IMG_TAG from '../imgs/tag.svg';
 import IMG_CLOCK_BLACK from '../imgs/clock_black.svg';
 import IMG_DOG from '../imgs/dog.png';
 import IMG_TAG_GRAY from '../imgs/tag_gray.svg';
+import IMG_COMMENT from '../imgs/comment.svg';
 
 
 
@@ -35,6 +36,10 @@ const PostPage = () => {
     //Comment handler
     const commentRef = useRef(null);
     const [cmtTxtCnt, setCmtTxtCnt] = useState(0);
+    const [isCmtEmpty, setIsCmtEmpty] = useState(true);
+    const [isNameEmpty, setIsNameEmpty] = useState(true);
+    const cmtBtnWrpRef = useRef(null);
+    const cmtBtnRef = useRef(null);
 
     //--- [Start] Components Styles ---
     const navStyle = {
@@ -65,7 +70,7 @@ const PostPage = () => {
 
     //--- [End] Components Styles ---
 
-    //--- [Start] Comment are resize & Count handler ---
+    //--- [Start] Comment area resize & Count handler ---
 
     const handleInput = (e) => {
         const textarea = commentRef.current;
@@ -73,9 +78,41 @@ const PostPage = () => {
         const newHeight = textarea.scrollHeight > 36 ? textarea.scrollHeight + 'px' : '36px';
         textarea.style.height = newHeight;
         setCmtTxtCnt(e.target.value.length);
-    };
-    
-    //--- [End] Comment are resize & Count handler ---
+        if (cmtTxtCnt > 1)
+            setIsCmtEmpty(false);
+        else
+            setIsCmtEmpty(true)
+    }
+
+    const handleNameInput = (e) => {
+        if(e.target.value.length > 0) {
+            setIsNameEmpty(false)
+        }
+        else {
+            setIsNameEmpty(true);
+        }
+    }
+
+    useEffect(()=>{
+        if(isCmtEmpty === false && isNameEmpty === false) {
+            if (cmtBtnRef.current) {
+                cmtBtnRef.current.style.background = 'linear-gradient(90deg, #E95148 0%, #ED3C7C 47%, #DB38F5 100%)';
+                cmtBtnRef.current.style.webkitBackgroundClip = 'text';
+                cmtBtnRef.current.style.color = 'transparent';
+                cmtBtnRef.current.disabled = false;
+            }
+        }
+        else if(isCmtEmpty === true || isNameEmpty === true) {
+            if (cmtBtnRef.current) {
+                cmtBtnRef.current.style.background = 'none';
+                cmtBtnRef.current.style.color = '#707070';
+                cmtBtnRef.current.disabled = true;
+            }
+        }
+            
+    }, [isCmtEmpty, isNameEmpty])
+
+    //--- [End] Comment area resize & Count handler ---
 
     //--- [Start] Reuseable Components ---
 
@@ -153,8 +190,20 @@ const PostPage = () => {
                             </div>
                             <textarea id='CommentInput' ref={commentRef} row='1' onInput={handleInput} maxlength='256' placeholder='여기에 댓글 입력' type='text'></textarea>
                             <p id='TitleLength'>{`${cmtTxtCnt}`}/256</p>
-                            
-
+                            <div style={{display: 'flow-root', marginTop: '15px'}}>
+                                <div className='NameWrapper' style={{float: 'left'}}>
+                                    <input id='NameInput' onInput={handleNameInput} style={{height: '45px', width: '305px', padding: '0', float: 'none'}} placeholder='이름'></input>
+                                </div>
+                                <div className='NameWrapper CmtBtnWrapper' ref={cmtBtnWrpRef} style={{float: 'right'}}>
+                                    <button id='CommentBtn' ref={cmtBtnRef}>
+                                        <p>등록</p>
+                                        <img src={IMG_COMMENT} alt='comment'></img>
+                                    </button>
+                                </div>
+                            </div>
+                            <div className='CommentContainer'>
+                                
+                            </div>
                         </div>
                         <div className='SearchManager' style={managerStyle}>
                             <div className='SearchBox'>
