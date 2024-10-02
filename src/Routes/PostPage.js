@@ -32,6 +32,10 @@ const PostPage = () => {
     //Viewer Test
     const testPost = `<p>여러분 우리 귀여운 강아지좀 보고가세요~</p><div data-language="c++" class="toastui-editor-ww-code-block"><pre><code data-language="c++">dog dog1 = new dog();</code></pre></div>`;
 
+    //Comment handler
+    const commentRef = useRef(null);
+    const [cmtTxtCnt, setCmtTxtCnt] = useState(0);
+
     //--- [Start] Components Styles ---
     const navStyle = {
         maxWidth: isLargeScreen ? 'calc(1180px - 20px)' : '100%',
@@ -60,6 +64,18 @@ const PostPage = () => {
     }
 
     //--- [End] Components Styles ---
+
+    //--- [Start] Comment are resize & Count handler ---
+
+    const handleInput = (e) => {
+        const textarea = commentRef.current;
+        textarea.style.height = 'auto';
+        const newHeight = textarea.scrollHeight > 36 ? textarea.scrollHeight + 'px' : '36px';
+        textarea.style.height = newHeight;
+        setCmtTxtCnt(e.target.value.length);
+    };
+    
+    //--- [End] Comment are resize & Count handler ---
 
     //--- [Start] Reuseable Components ---
 
@@ -131,7 +147,14 @@ const PostPage = () => {
                             <div className='TagContainerOnPost'>
                                 <PostTag type={true} tagName={'강아지'}></PostTag>
                             </div>
-                            <p className='ETitle'>댓글</p>
+                            <div style={{display: 'flow-root', marginTop: '25px', width: '100%'}}>
+                                <p className='ETitle' style={{float: 'left', margin: '0px'}}>댓글</p>
+                                <p style={{float:'left', fontFamily: 'galmuri11', fontSize: '32px', color: '#707070', margin: `${52.8 - 43.2}px 0 0 10px`}}>{1}</p>
+                            </div>
+                            <textarea id='CommentInput' ref={commentRef} row='1' onInput={handleInput} maxlength='256' placeholder='여기에 댓글 입력' type='text'></textarea>
+                            <p id='TitleLength'>{`${cmtTxtCnt}`}/256</p>
+                            
+
                         </div>
                         <div className='SearchManager' style={managerStyle}>
                             <div className='SearchBox'>

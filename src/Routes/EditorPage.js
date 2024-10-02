@@ -24,6 +24,7 @@ const EditorPage = () => {
 
     //Editor State
     const editorRef = useRef();
+    const [titleCnt, setTitleCnt] = useState(0);
 
     //Thumnali file upload
     const thumnaliRef = useRef();
@@ -86,6 +87,14 @@ const EditorPage = () => {
     }
     //--- [End] Thumnail Upload handler ---
 
+    //--- [Start] Title text count handler ---
+
+    const handleInput = (e) => {
+        setTitleCnt(e.target.value.length);
+    };
+    
+    //--- [End] Title text count handler ---
+
     //--- [Start] Reuseable Components ---
 
     const DropDownSelect = ({value}) => {
@@ -137,8 +146,8 @@ const EditorPage = () => {
                 </div>
                 <div className='PageConents'>
                     <p className='ETitle'>제목</p>
-                    <input id='TitleInput' placeholder='제목을 입력하세요' type='text'></input>
-                    <p id='TitleLength'>{`${0}`}/64</p>
+                    <input id='TitleInput' placeholder='제목을 입력하세요' onChange={handleInput} maxlength='64' type='text'></input>
+                    <p id='TitleLength'>{`${titleCnt}`}/64</p>
                     <div className='EditorTools'>
                         <p className='ETitle BoneMoon'>본문</p>
                         <div className='ToolsBtns'>
