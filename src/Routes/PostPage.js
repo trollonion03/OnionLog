@@ -10,11 +10,10 @@ import IMG_ETC_BLACK from '../imgs/etc_black.svg';
 import IMG_SEARCH from '../imgs/search.svg';
 import IMG_TAG from '../imgs/tag.svg';
 import IMG_CLOCK_BLACK from '../imgs/clock_black.svg';
+import IMG_CLOCK_GRAY from '../imgs/clockgray.svg';
 import IMG_DOG from '../imgs/dog.png';
 import IMG_TAG_GRAY from '../imgs/tag_gray.svg';
 import IMG_COMMENT from '../imgs/comment.svg';
-
-
 
 const PostPage = () => {
     const navigate = useNavigate();
@@ -32,6 +31,7 @@ const PostPage = () => {
 
     //Viewer Test
     const testPost = `<p>여러분 우리 귀여운 강아지좀 보고가세요~</p><div data-language="c++" class="toastui-editor-ww-code-block"><pre><code data-language="c++">dog dog1 = new dog();</code></pre></div>`;
+    const testComment = `그래, 나빠지지는 말아야지, 그거면 됐지.`;
 
     //Comment handler
     const commentRef = useRef(null);
@@ -134,6 +134,22 @@ const PostPage = () => {
             </div>
         );
     }
+
+    const Comments = ({nickname, body, timestamp}) => {
+        return (
+            <div className='Comments'>
+                <div style={{display: 'flow-root'}}>
+                    <p className='Nickname'>{`${nickname} :`}</p>
+                    <p className='CommentBody'>{body}</p>
+                </div>
+                <div className='CmtTimestamp'>
+                    <img src={IMG_CLOCK_GRAY} alt='commentTimestamp'></img>
+                    <p>{timestamp}</p>
+                </div>
+                
+            </div>
+        )
+    }
     
     //--- [End] Reuseable Components ---
 
@@ -202,7 +218,7 @@ const PostPage = () => {
                                 </div>
                             </div>
                             <div className='CommentContainer'>
-                                
+                                <Comments nickname={'Null'} body={testComment} timestamp={`${24}.${'06'}.${15}.`}></Comments>
                             </div>
                         </div>
                         <div className='SearchManager' style={managerStyle}>

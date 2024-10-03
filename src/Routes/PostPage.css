@@ -79,6 +79,45 @@
     background-color: black;
 }
 
+.CommentContainer {
+    margin-top: 48.5px;
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+}
+
+.Comments {
+    font-family: 'galmuri11';
+    font-size: 24px;
+}
+
+.Nickname {
+    float: left;
+    margin-right: 16px;
+}
+
+.CommentBody {
+    float: left;
+    color: #505050;
+}
+
+.CmtTimestamp {
+    display: flow-root;
+}
+
+.CmtTimestamp>img {
+    float:left;
+}
+
+.CmtTimestamp>p {
+    float: left;
+    margin-left: 5px;
+    font-size: 20px;
+    color: #707070;
+    line-height: 27px;
+}
+
+
 #CommentInput {
     resize: none;
     height: 40px;

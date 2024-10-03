@@ -11,7 +11,6 @@ import IMG_SEARCH from '../imgs/search.svg';
 import IMG_TAG from '../imgs/tag.svg';
 import IMG_ARCHIVE from '../imgs/archive.svg';
 
-
 const BlogPage = () => {
     const navigate = useNavigate();
     const isLargeScreen = useMediaQuery({minWidth: 1180});

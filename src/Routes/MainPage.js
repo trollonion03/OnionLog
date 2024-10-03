@@ -15,7 +15,6 @@ import IMG_MFC from '../imgs/mfc.png';
 import IMG_QT from '../imgs/qt.png';
 import IMG_DEFAULT from '../imgs/none.png';
 
-
 const MainPage = () => {
     const navigate = useNavigate();
     const isLargeScreen = useMediaQuery({maxWidth: 1200});
