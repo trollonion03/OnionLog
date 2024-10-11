@@ -63,7 +63,7 @@ const BlogPage = () => {
 
     //--- [Start] Reuseable Components ---
     
-    const SeriesBtn = ({name, img, color}) => {
+    const SeriesBtn = ({name, img, color, handler}) => {
 
         const binderStyle = {
             backgroundColor: color,
@@ -72,7 +72,7 @@ const BlogPage = () => {
         console.log(`color: ${color}`);
 
         return (
-            <button className='SeriesBtn' type='submit' onClick={() => {console.log(name)}}>
+            <button className='SeriesBtn' type='submit' onClick={handler}>
                 <div className='SeriesBinder' style={binderStyle}></div>
                 <div className='SeriesTag'>
                     <img src={img} alt={`${name}`}></img>
@@ -80,6 +80,21 @@ const BlogPage = () => {
                 </div>
             </button>
         );
+    }
+
+    const fetchTest = (url) => {
+        console.log('clicked');
+        fetch(url, {
+            mode: 'cors',
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            // body: JSON.stringify({ key: 'value' })
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
     }
 
     // Posts
@@ -170,7 +185,7 @@ const BlogPage = () => {
                 <div className='PageConents'>
                     <p className='SubTitle'>시리즈</p>
                     <div className='SeriesContainer'>
-                        <SeriesBtn img={IMG_PROJECT} name={'Project'} color={SERIES_COLOR[FLAG_PROJECT]}></SeriesBtn>
+                        <SeriesBtn img={IMG_PROJECT} name={'Project'} color={SERIES_COLOR[FLAG_PROJECT]} handler={() => fetchTest('http://127.0.0.1:8000/blog/test')}></SeriesBtn>
                         <SeriesBtn img={IMG_STUDY} name={'STUDY'} color={SERIES_COLOR[FLAG_STUDY]}></SeriesBtn>
                         <SeriesBtn img={IMG_ETC} name={'Etc.'} color={SERIES_COLOR[FLAG_ETC]}></SeriesBtn>
                     </div>
