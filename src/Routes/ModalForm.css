@@ -1,0 +1,25 @@
+.LoginBtn {
+    background-color: white;
+    border: none;
+    padding: 0px;
+    font-family: inherit;
+    font-size: 18px;
+    float: right;
+}
+
+.LoginModal {
+    height: 330px;
+    width: 414px;
+    border-radius: 25px;   
+}
+
+.ConfirmModal {
+    height: 250px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.GlobalModal {
+    border: 0px none;
+    background-color: #1A2029;
+}
