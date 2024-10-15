@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback, useLayoutEffect } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import LoginForm from './ModalForm';
 import './MainPage.css';
 import IMG_TROLLONION from '../imgs/trollonion.webp'
 import IMG_GITHUB from '../imgs/github.svg';
@@ -510,7 +511,7 @@ const MainPage = () => {
                         <Link style={{ textDecoration: 'none', color: 'black' }} reloadDocument to='/'>OnionLog_</Link>
                         {notMobileHeader && <Link style={{ textDecoration: 'none', color: 'black', fontSize: '18px', marginLeft: '63px' }} to='/blog'>블로그</Link>}
                     </div>
-                    <button type='submit' onClick={onClickLogin}>로그인</button>
+                    <LoginForm/>
                 </div>
             </header>
             <div className='MainBody' style={bodyStyle} ref={preload}>

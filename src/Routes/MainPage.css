@@ -120,6 +120,7 @@ footer {
     line-height: 77px;
 }
 
+/* TODO: Move into LoginForm.css */
 .NavBar > button {
     background-color: white;
     border: none;
