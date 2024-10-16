@@ -511,7 +511,7 @@ const MainPage = () => {
                         <Link style={{ textDecoration: 'none', color: 'black' }} reloadDocument to='/'>OnionLog_</Link>
                         {notMobileHeader && <Link style={{ textDecoration: 'none', color: 'black', fontSize: '18px', marginLeft: '63px' }} to='/blog'>블로그</Link>}
                     </div>
-                    <LoginForm/>
+                    <LoginForm prop={0}></LoginForm>
                 </div>
             </header>
             <div className='MainBody' style={bodyStyle} ref={preload}>

@@ -3,7 +3,7 @@ import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import './ModalForm.css';
 
-const ModalForm = ({type}) => {
+const ModalForm = ({prop}) => {
     const navigate = useNavigate();
     const isLargeScreen = useMediaQuery({minWidth: 1180});
     const isLargeHeight = useMediaQuery({minHeight: 899});
@@ -13,7 +13,7 @@ const ModalForm = ({type}) => {
 
     //Modal handler
     const modalRef = useRef(null);
-    const [propState, setPropState] = useState(1);
+    const [propState, setPropState] = useState(prop);
 
     //--- [Start] Components Styles ---
     const navStyle = {
@@ -75,13 +75,23 @@ const ModalForm = ({type}) => {
     //--- [End] Modal Handler ---
 
     //--- [Start] Reuseable Components ---
+    const LoginBtn = () => {
+        return (
+            <button className='LoginBtn' type='submit' onClick={openModal}>로그인</button>
+        );
+    }
+
     const LoginForm = () => {
         return (
-            <div>
-                <p>OnionLog<span>_</span></p>
-                <input placeholder='ID'></input>
-                <input placeholder='Password'></input>
-                <button>로그인</button>
+            <div className='LoginForm'>
+                <p id='LoginTitle'>OnionLog<span>_</span></p>
+                <div className='LoginInputWrapper' id='LoginID'>
+                    <input className='LoginInput' placeholder='ID'></input>
+                </div>
+                <div className='LoginInputWrapper' id='LoginPW'>
+                <input className='LoginInput' placeholder='Password'></input>
+                </div>
+                <button id='LoginSubmit'><p>로그인</p></button>
             </div>
         )
     }
@@ -97,14 +107,11 @@ const ModalForm = ({type}) => {
     //--- [End] Reuseable Components ---
 
     return (
-        // <div className='FloatingForm'>
-            
-        // </div>
         <div>
-            <button className='LoginBtn' type='submit' onClick={openModal}>로그인</button>
+            {propState === 0 && <LoginBtn></LoginBtn>}
             <dialog ref={modalRef} className={`GlobalModal ${propState == 0 ? 'LoginModal' : 'ConfirmModal'}`}>
-                <h1>hi</h1>
-                <button onClick={closeModal}>닫기</button>
+                {propState === 0 && <LoginForm></LoginForm>}
+                {propState === 1 && <CheckForm></CheckForm>}
             </dialog>
         </div>
     );

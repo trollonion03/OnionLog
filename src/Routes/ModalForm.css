@@ -22,4 +22,106 @@
 .GlobalModal {
     border: 0px none;
     background-color: #1A2029;
+    padding: 0px;
 }
+
+.LoginForm {
+    position: relative;
+    display: flex;
+    height: calc(100% - 45px * 2);
+    width: calc(100% - 57px * 2);
+    padding: 45px 57px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LoginInputWrapper {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+}
+
+.LoginInputWrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -1.5px;
+    left: 0;
+    width: 100%;
+    border-bottom: 3px solid white;
+}
+
+.LoginInput {
+    height: 32px;
+    width: 100%;
+    background-color: #1A2029;
+    border: 0px none;
+    padding: 0;
+    color: white;
+    font-size: 20px;
+    font-family: 'galmuri11';
+}
+
+.LoginInput:focus {
+    outline: none;
+}
+
+.LoginInput::placeholder {
+    color: white;
+}
+
+#LoginTitle {
+    background: linear-gradient(110deg, #FFD467 0%, #88E4EA 25%, #E869B5 50%, #CC86E4 75%, #6989E5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 36px;
+}
+
+#LoginTitle>span{
+    background: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#LoginID {
+    margin-top: 37px;
+}
+
+#LoginPW {
+    margin-top: 33px;
+}
+
+#LoginSubmit {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1A2029;
+    border: 0px none;
+    padding: 0;
+}
+
+#LoginSubmit>p {
+    position: relative;
+    font-family: 'galmuri11';
+    background: linear-gradient(-69deg, #B275FF 17%, #3CCAE9 60%, #74BFE9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 24px;
+}
+
+#LoginSubmit>p::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(-69deg, #B275FF 17%, #3CCAE9 60%, #74BFE9 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
