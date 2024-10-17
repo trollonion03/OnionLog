@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import ModalForm from './ModalForm';
 import './BlogPage.css';
 import IMG_STUDY from '../imgs/book.svg';
 import IMG_PROJECT from '../imgs/code.svg';
@@ -174,7 +175,7 @@ const BlogPage = () => {
                         <Link style={{ textDecoration: 'none', color: 'black' }} reloadDocument to='/'>OnionLog_</Link>
                         <Link style={{ textDecoration: 'none', color: 'black', fontSize: '18px', marginLeft: '63px' }} to='/blog'>블로그</Link>
                     </div>
-                    <button type='submit' onClick={onClickLogin}>로그인</button>
+                    <ModalForm prop={0}></ModalForm>
                 </div>
             </header>
             <div className='MainBody' style={bodyStyle}>

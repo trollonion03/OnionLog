@@ -74,6 +74,10 @@ const ModalForm = ({prop}) => {
 
     //--- [End] Modal Handler ---
 
+    //--- [Start] Login Handler ---
+
+    //--- [End] Login Handler ---
+
     //--- [Start] Reuseable Components ---
     const LoginBtn = () => {
         return (
@@ -91,7 +95,7 @@ const ModalForm = ({prop}) => {
                 <div className='LoginInputWrapper' id='LoginPW'>
                 <input className='LoginInput' placeholder='Password'></input>
                 </div>
-                <button id='LoginSubmit'><p>로그인</p></button>
+                <button id='LoginSubmit' onClick={() => {}}><p>로그인</p></button>
             </div>
         )
     }
