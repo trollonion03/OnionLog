@@ -9,3 +9,15 @@ const axiosInstance = axios.create({
 });
 
 export default axiosInstance;
+
+const getToken = async () => {
+    axiosInstance.post('/auth/refresh', {
+    }).then(response => {
+        const { accessToken } = response.data.access;
+        return accessToken
+
+    }).catch(error => {
+        console.log(error);
+        return null
+    });
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import axiost from "../AxiosInstance";
 import './ModalForm.css';
 
 const ModalForm = ({prop}) => {
@@ -14,6 +15,10 @@ const ModalForm = ({prop}) => {
     //Modal handler
     const modalRef = useRef(null);
     const [propState, setPropState] = useState(prop);
+
+    //Login handler
+    let userId;
+    let userPw;
 
     //--- [Start] Components Styles ---
     const navStyle = {
@@ -76,6 +81,27 @@ const ModalForm = ({prop}) => {
 
     //--- [Start] Login Handler ---
 
+    const onChangeId = (e) => {
+        userId = e.target.value;
+    }
+
+    const onChangePw = (e) => {
+        userPw = e.target.value;
+    }
+
+    const onLogin = () => {
+        console.log(`${userId} : ${userPw}`);
+        axiost.post('auth/login/', {
+            email: userId,
+            password: userPw,
+        })
+        .then(response => {
+    
+        }).catch(error => {
+            console.log(error)
+        });
+    }
+
     //--- [End] Login Handler ---
 
     //--- [Start] Reuseable Components ---
@@ -90,12 +116,12 @@ const ModalForm = ({prop}) => {
             <div className='LoginForm'>
                 <p id='LoginTitle'>OnionLog<span>_</span></p>
                 <div className='LoginInputWrapper' id='LoginID'>
-                    <input className='LoginInput' placeholder='ID'></input>
+                    <input className='LoginInput' placeholder='ID' onChange={onChangeId}></input>
                 </div>
                 <div className='LoginInputWrapper' id='LoginPW'>
-                <input className='LoginInput' placeholder='Password'></input>
+                <input className='LoginInput' placeholder='Password' type='password' onChange={onChangePw}></input>
                 </div>
-                <button id='LoginSubmit' onClick={() => {}}><p>로그인</p></button>
+                <button id='LoginSubmit' onClick={() => {onLogin()}}><p>로그인</p></button>
             </div>
         )
     }
