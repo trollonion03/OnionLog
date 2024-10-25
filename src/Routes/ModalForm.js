@@ -96,7 +96,8 @@ const ModalForm = ({prop}) => {
             password: userPw,
         })
         .then(response => {
-    
+            let token = response.data.token.access;
+            axiost.defaults.headers.common['Authorization'] = `JWT ${token}`;
         }).catch(error => {
             console.log(error)
         });
