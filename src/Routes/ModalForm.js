@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { useNavigate, Link, Navigate } from 'react-router-dom';
+import { useNavigate, Link, Navigate, useFetcher } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import axiost from "../AxiosInstance";
 import './ModalForm.css';
@@ -17,8 +17,10 @@ const ModalForm = ({prop}) => {
     const [propState, setPropState] = useState(prop);
 
     //Login handler
-    let userId;
-    let userPw;
+    const loginBtnRef = useRef(null);
+    const [msgState, setMsgState] = useState('');
+    let userId = '';
+    let userPw = '';
 
     //--- [Start] Components Styles ---
     const navStyle = {
@@ -90,7 +92,11 @@ const ModalForm = ({prop}) => {
     }
 
     const onLogin = () => {
-        console.log(`${userId} : ${userPw}`);
+        if(String(userId).length < 2 && String(userPw).length < 2) {
+            setMsgState('아이디와 비밀번호를 입력하시오');
+            return;
+        }
+        
         axiost.post('auth/login/', {
             email: userId,
             password: userPw,
@@ -98,10 +104,19 @@ const ModalForm = ({prop}) => {
         .then(response => {
             let token = response.data.token.access;
             axiost.defaults.headers.common['Authorization'] = `JWT ${token}`;
+            setMsgState('');
+            closeModal();
         }).catch(error => {
             console.log(error)
+            setMsgState('문제가 발생하였습니다')
         });
     }
+
+    const onActivateEnter = (e) => {
+        if(e.key === "Enter") {
+          loginBtnRef.current.click()
+        }
+      }
 
     //--- [End] Login Handler ---
 
@@ -117,12 +132,13 @@ const ModalForm = ({prop}) => {
             <div className='LoginForm'>
                 <p id='LoginTitle'>OnionLog<span>_</span></p>
                 <div className='LoginInputWrapper' id='LoginID'>
-                    <input className='LoginInput' placeholder='ID' onChange={onChangeId}></input>
+                    <input className='LoginInput' placeholder='ID' onChange={onChangeId} onKeyDown={onActivateEnter}></input>
                 </div>
                 <div className='LoginInputWrapper' id='LoginPW'>
-                <input className='LoginInput' placeholder='Password' type='password' onChange={onChangePw}></input>
+                <input className='LoginInput' placeholder='Password' type='password' onChange={onChangePw} onKeyDown={onActivateEnter}></input>
                 </div>
-                <button id='LoginSubmit' onClick={() => {onLogin()}}><p>로그인</p></button>
+                <p id='LoginErrorMsg' style={{marginTop: msgState.length > 0 ? '15px' : '0px'}}>{msgState}</p>
+                <button id='LoginSubmit' style={{marginTop: msgState.length > 0 ? '15px' : '25px'}} ref={loginBtnRef} onClick={() => {onLogin()}}><p>로그인</p></button>
             </div>
         )
     }

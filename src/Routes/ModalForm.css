@@ -8,7 +8,7 @@
 }
 
 .LoginModal {
-    height: 330px;
+    height: fit-content;
     width: 414px;
     border-radius: 25px;   
 }
@@ -93,12 +93,9 @@
 }
 
 #LoginSubmit {
-    position: absolute;
     width: fit-content;
     height: fit-content;
-    bottom: 45px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 25px;
     background-color: #1A2029;
     border: 0px none;
     padding: 0;
@@ -123,5 +120,13 @@
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+#LoginErrorMsg {
+    font-size: 14px;
+    background: linear-gradient(90deg, #E95148 0%, #ED3C7C 47%, #DB38F5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
