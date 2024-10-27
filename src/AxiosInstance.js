@@ -10,7 +10,7 @@ const axiosInstance = axios.create({
 
 export default axiosInstance;
 
-const getToken = async () => {
+export const getToken = async () => {
     axiosInstance.post('/auth/refresh', {
     }).then(response => {
         const { accessToken } = response.data.access;

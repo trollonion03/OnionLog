@@ -22,6 +22,10 @@ const ModalForm = ({prop}) => {
     let userId = '';
     let userPw = '';
 
+    //Session Storage
+    const s_isLogin = window.sessionStorage.getItem("isLogin");
+    const [isLogin, setIsLogin] = useState(s_isLogin ? s_isLogin : 'false');
+
     //--- [Start] Components Styles ---
     const navStyle = {
         maxWidth: isLargeScreen ? 'calc(1180px - 20px)' : '100%',
@@ -104,13 +108,24 @@ const ModalForm = ({prop}) => {
         .then(response => {
             let token = response.data.token.access;
             axiost.defaults.headers.common['Authorization'] = `JWT ${token}`;
-            setMsgState('');
-            closeModal();
+            
+            if(response.status === 200) {
+                setIsLogin('true')
+                setMsgState('');
+                closeModal();
+            }
+            else
+                throw new Error('login failed');
+            
         }).catch(error => {
             console.log(error)
             setMsgState('문제가 발생하였습니다')
         });
     }
+
+    useEffect(() => {
+        window.sessionStorage.setItem("isLogin", isLogin);
+    });
 
     const onActivateEnter = (e) => {
         if(e.key === "Enter") {
@@ -123,7 +138,7 @@ const ModalForm = ({prop}) => {
     //--- [Start] Reuseable Components ---
     const LoginBtn = () => {
         return (
-            <button className='LoginBtn' type='submit' onClick={openModal}>로그인</button>
+            <button className='LoginBtn' type='submit' onClick={openModal}>{isLogin === 'true' ? '메뉴' : '로그인'}</button>
         );
     }
 
